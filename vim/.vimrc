@@ -8,6 +8,7 @@ set clipboard=unnamed
 call plug#begin('~/.vim/plugged')
 
 Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'kien/ctrlp.vim'
 " Plug 'valloric/youcompleteme'
 Plug 'airblade/vim-gitgutter'
@@ -31,7 +32,14 @@ Plug 'Vimjas/vim-python-pep8-indent'
 Plug 'neoclide/coc.nvim', {'branch': 'release' }
 Plug 'joshdick/onedark.vim'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-
+Plug 'tpope/vim-eunuch'
+Plug 'ekalinin/dockerfile.vim'
+Plug 'ryanoasis/vim-devicons'
+Plug 'rust-lang/rust.vim'
+Plug 'janko-m/vim-test'
+Plug 'tpope/vim-repeat'
+Plug 'majutsushi/tagbar'
+Plug 'tpope/vim-surround'
 call plug#end()
 
 
@@ -51,6 +59,11 @@ let g:SimpylFold_docstring_preview=1
 
 set encoding=utf-8
 
+" set ignore case during search
+set ic
+
+" highlight line with cursor
+set cursorline
 
 " Configure YouComplete me
 let g:ycm_autoclose_preview_window_after_completion=1
@@ -59,7 +72,7 @@ let g:ycm_autoclose_preview_window_after_completion=1
 let python_highlight_all=1
 
 
-colorscheme zenburn
+colorscheme onedark
 
 " Configure NERDTree
 let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
@@ -184,8 +197,7 @@ command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
 
 " Add status line support, for integration with other plugin, checkout `:h coc-status`
-" set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')} 
-set statusline=%<%f\ %h%m%r%{kite#statusline()}%=%-14.(%l,%c%V%)\ %P
+set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')} 
 set laststatus=2
 
 " Using CocList
@@ -205,3 +217,7 @@ nnoremap <silent> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
+
+
+" set airline theme
+let g:airline_theme='cobalt2'
