@@ -224,3 +224,8 @@ command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
 " disable vim-go :GoDef shortcut (gd)
 let g:go_def_mapping_enabled = 0
+
+" set python interpreter for neovim
+let g:python3_host_prog = '/usr/bin/python3'
+" disbale python2
+let g:loaded_python_provider = 0
