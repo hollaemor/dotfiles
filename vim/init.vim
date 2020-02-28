@@ -65,6 +65,8 @@ set ic
 " highlight line with cursor
 set cursorline
 
+" Configure YouComplete me
+let g:ycm_autoclose_preview_window_after_completion=1
 
 let python_highlight_all=1
 
@@ -214,7 +216,7 @@ nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 
 " set airline theme
 let g:airline_theme='cobalt2'
-
+let g:airline_powerline_fonts=1
 
 " setup Prettier command
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
