@@ -1,30 +1,20 @@
-syntax on
-
-set number relativenumber
-
-" use system clipboard
-set clipboard=unnamed
-
+" Plugins 
 call plug#begin('~/.vim/plugged')
 
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'kien/ctrlp.vim'
-" Plug 'valloric/youcompleteme'
+Plug 'ctrlpvim/ctrlp.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-fugitive'
 Plug 'tmhedberg/SimpylFold'
 Plug 'vim-scripts/indentpython.vim'
-" Plug 'vim-syntastic/syntastic'
 Plug 'nvie/vim-flake8'
-" post install (yarn install | npm install)
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'jnurmine/Zenburn'
 Plug 'altercation/vim-colors-solarized'
 Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-commentary'
-" Plug 'liuchengxu/vista.vim'
 Plug 'jeetsukumaran/vim-pythonsense'
 Plug 'jiangmiao/auto-pairs'
 Plug 'dense-analysis/ale'
@@ -40,14 +30,45 @@ Plug 'janko-m/vim-test'
 Plug 'tpope/vim-repeat'
 Plug 'majutsushi/tagbar'
 Plug 'tpope/vim-surround'
+Plug 'leafgarland/typescript-vim'
+Plug 'pangloss/vim-javascript'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'ap/vim-css-color'
+
+
+" Denite. still yet to configure
+if has('nvim')
+  Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/denite.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
+
+Plug 'morhetz/gruvbox'
 call plug#end()
 
 
+
+
+
+" Basic editor settings
+syntax on
+set relativenumber
+set clipboard=unnamed
+set mouse=a
+set encoding=utf-8
 " Enable folding
 set foldmethod=indent
 set foldlevel=99
+" set ignore case during search
+set ic
 
 
+
+
+" highlight current line
+set cursorline
 " Enable folding with the spacebar
 nnoremap <space> za
 
@@ -57,21 +78,19 @@ let g:SimpylFold_docstring_preview=1
 
 
 
-set encoding=utf-8
 
-" set ignore case during search
-set ic
-
-" highlight line with cursor
-set cursorline
-
-" Configure YouComplete me
-let g:ycm_autoclose_preview_window_after_completion=1
-
+" Color Scheme and background
+set termguicolors
+set background=dark
 let python_highlight_all=1
+colorscheme gruvbox
+" Fix transparent background
+hi! Normal ctermbg=NONE guibg=NONE
+hi! NonText ctermbg=NONE guibg=NONE guifg=NONE ctermfg=NONE
 
 
-colorscheme onedark
+
+
 
 " Configure NERDTree
 let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
@@ -80,12 +99,24 @@ let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
 " Configure ALE
 let g:ale_fix_on_save = 1
 
+" Update CtrlP to use devicons
+let g:webdevicons_enable_ctrlp = 1
+
 " show ALE errors in airline
 let g:airline#extensions#ale#enabled = 1
 " Configure coc
 " if hidden is not set, TextEdit might fail.
 set hidden
 
+
+" vim-go config
+" disable :GoDef gd
+let g:go_def_mapping_enabled = 0
+let g:go_doc_popup_window = 1
+let g:go_doc_keywordprg_enabled = 0
+" ---------------------------------------------------------------------
+"  Coc Config 
+"  --------------------------------------------------------------------
 " Some servers have issues with backup files, see #649
 set nobackup
 set nowritebackup
@@ -215,15 +246,17 @@ nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 
 
 " set airline theme
-let g:airline_theme='cobalt2'
+let g:airline_theme='gruvbox'
 let g:airline_powerline_fonts=1
+let g:airline#extensions#tabline#enabled=1
+
+" Gruvbox config
+let g:gruvbox_contrast_dark='hard'
+let g:gruvbox_italic=1
 
 " setup Prettier command
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
-
-" disable vim-go :GoDef shortcut (gd)
-let g:go_def_mapping_enabled = 0
 
 " set python interpreter for neovim
 let g:python3_host_prog = '/usr/bin/python3'
