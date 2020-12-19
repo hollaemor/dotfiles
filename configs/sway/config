@@ -43,10 +43,10 @@ output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_2048x1536_Portrait.p
 # Example configuration:
 #
  exec swayidle -w \
-          timeout 300 'swaylock -f -i ~/Pictures/wallpapers/wallpaper2.jpg' \
+          timeout 300 'swaylock --screenshots --clock --indicator --effect-blur 7x5 --effec-vignette 0.5:0.5 --fade-in 0.2' \
           timeout 600 'swaymsg "output * dpms off"' \
                resume 'swaymsg "output * dpms on"' \
-          before-sleep 'swaylock -f -i ~/Pictures/wallpapers/wallpaper2.jpg'
+          before-sleep 'swaylock --screenshots --clock --indicator --effect-blur 7x5 --effec-vignette 0.5:0.5 --fade-in 0.2'
 #
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
