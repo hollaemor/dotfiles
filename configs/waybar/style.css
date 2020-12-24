@@ -18,19 +18,19 @@
     to {
         /*color: white;*/
         /*background-color: orange;*/
-	color: orange;
+        color: orange;
     }
 }
 
 @keyframes blink-critical {
     70% {
-      color: white;
+        color: white;
     }
 
     to {
         /*color: white;*/
         /*background-color: red;*/
-	color: red;
+        color: red;
     }
 }
 
@@ -51,7 +51,7 @@
 /* The whole bar */
 #waybar {
     /*background: #323232; */
-    background: rgba(43,48,59,0.7);
+    background: rgba(43, 48, 59, 0.7);
     color: white;
     font-family: Roboto, 'Font Awesome 5', Cantarell, Noto Sans, sans-serif;
     font-size: 13px;
@@ -106,7 +106,7 @@
 }
 
 #cpu {
-  /* No styles */
+    /* No styles */
 }
 
 #cpu.warning {

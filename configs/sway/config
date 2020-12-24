@@ -24,12 +24,13 @@ set $menu wofi | xargs swaymsg exec --
 
 
 # set font
-font pango:Cantarell 14px
+#font pango:Cantarell 14px
+font pango:"FuraCode Nerd Font" 14
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 # output * bg ~/Pictures/wallpapers/wallpaper3.jpg fill
-output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_2048x1536_Portrait.png fill
+output * bg ~/Pictures/wallpapers/wallpaper_1.png fill
 #
 # Example configuration:
 #
@@ -43,10 +44,10 @@ output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_2048x1536_Portrait.p
 # Example configuration:
 #
  exec swayidle -w \
-          timeout 300 'swaylock --screenshots --clock --indicator --effect-blur 7x5 --effec-vignette 0.5:0.5 --fade-in 0.2' \
+          timeout 300 'swaylock --screenshots --clock --indicator --effect-blur 7x5 --effect-vignette 0.5:0.5 --fade-in 0.2' \
           timeout 600 'swaymsg "output * dpms off"' \
                resume 'swaymsg "output * dpms on"' \
-          before-sleep 'swaylock --screenshots --clock --indicator --effect-blur 7x5 --effec-vignette 0.5:0.5 --fade-in 0.2'
+          before-sleep 'swaylock --screenshots --clock --indicator --effect-blur 7x5 --effect-vignette 0.5:0.5 --fade-in 0.2'
 #
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
@@ -270,7 +271,7 @@ bindsym $mod+Shift+p      mode $power_mode
 mode $power_mode {
     bindsym p         exec systemctl poweroff
     bindsym r         exec systemctl reboot 
-    bindsym l         exec swaylock -i ~/Pictures/wallpapers/wallpaper2.jpg , mode "default"
+    bindsym l         exec swaylock --screenshots --clock --indicator --effect-blur 7x5 --effect-vignette 0.5:0.5 --fade-in 0.2, mode "default"
     bindsym q         exec --no-startup-id i3-msg exit, mode "default"
     bindsym h         exec systemctl hibernate 
     #bindsym s        exec sudo  /lib/systemd/systemd-sleep hybrid-sleep 
@@ -282,7 +283,7 @@ mode $power_mode {
 
 mode "application" {
   bindsym f exec firefox; mode "default"
-  bindsym i exec  ~/bin/idea
+  bindsym i exec _JAVA_AWT_WM_NONREPARENTING=1 ~/bin/idea; mode "default"
   bindsym c exec code; mode "default"
   bindsym g exec google-chrome-stable; mode "default"
 
