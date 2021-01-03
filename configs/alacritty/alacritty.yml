@@ -242,7 +242,7 @@ schemes:
       cyan: '#89ddff'
       white: '#ffffff'  # Arbitrary
 
-colors: *monkai_pro
+colors: *gruvbox_dark
 
   # Dim colors
   #
