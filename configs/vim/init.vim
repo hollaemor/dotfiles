@@ -10,11 +10,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'tmhedberg/SimpylFold'
 Plug 'vim-scripts/indentpython.vim'
 Plug 'nvie/vim-flake8'
-Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
-Plug 'jnurmine/Zenburn'
 Plug 'altercation/vim-colors-solarized'
-Plug 'junegunn/fzf.vim'
-Plug 'tpope/vim-commentary'
 Plug 'jeetsukumaran/vim-pythonsense'
 Plug 'jiangmiao/auto-pairs'
 Plug 'dense-analysis/ale'
@@ -23,36 +19,40 @@ Plug 'neoclide/coc.nvim', {'branch': 'release' }
 Plug 'joshdick/onedark.vim'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'tpope/vim-eunuch'
-Plug 'ekalinin/dockerfile.vim'
+" Plug 'ekalinin/dockerfile.vim'
 Plug 'ryanoasis/vim-devicons'
 Plug 'rust-lang/rust.vim'
 Plug 'janko-m/vim-test'
 Plug 'tpope/vim-repeat'
 Plug 'majutsushi/tagbar'
 Plug 'tpope/vim-surround'
-Plug 'leafgarland/typescript-vim'
-Plug 'pangloss/vim-javascript'
+" Plug 'leafgarland/typescript-vim'
+" Plug 'pangloss/vim-javascript'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'ap/vim-css-color'
 Plug 'flazz/vim-colorschemes'
 Plug 'junegunn/vim-emoji'
-Plug 'cespare/vim-toml'
-Plug 'jparise/vim-graphql'
-Plug 'mxw/vim-jsx'
+" Plug 'cespare/vim-toml'
+" Plug 'jparise/vim-graphql'
+" Plug 'mxw/vim-jsx'
 Plug 'preservim/nerdcommenter'
 
+Plug 'tpope/vim-dispatch'
+Plug 'OmniSharp/omnisharp-vim'
 
+" line indents highlighting
+Plug 'Yggdroot/indentLine'
+Plug 'lukas-reineke/indent-blankline.nvim'
 
-" Denite. still yet to configure
-if has('nvim')
-  Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-  Plug 'Shougo/denite.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-endif
-
+" Color schemes
+Plug 'sainnhe/sonokai'
+Plug 'sainnhe/edge'
+Plug 'sainnhe/everforest'
+Plug 'sainnhe/gruvbox-material'
+Plug 'folke/tokyonight.nvim'
 Plug 'morhetz/gruvbox'
+
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 call plug#end()
 
 
@@ -78,6 +78,8 @@ set foldmethod=indent
 set foldlevel=99
 " set ignore case during search
 set ic
+"set list listchars=tab:>-,trail:~,extends:>,precedes:<
+"set list listchars=eol:↵,trail:~,tab:>-,nbsp:␣
 
 " do not create swap files
 set noswapfile
@@ -85,7 +87,8 @@ set noswapfile
 set scrolloff=5
 
 " highlight current line
-set cursorline
+" set cursorline
+set nocursorline
 " Enable folding with the spacebar
 nnoremap <space> za
 
@@ -98,12 +101,12 @@ let g:SimpylFold_docstring_preview=1
 
 " Color Scheme and background
 set termguicolors
-set background=dark
+"set background=dark
 let python_highlight_all=1
-colorscheme gruvbox
+colorscheme tokyonight
 " Fix transparent background
-hi! Normal ctermbg=NONE guibg=NONE
-hi! NonText ctermbg=NONE guibg=NONE guifg=NONE ctermfg=NONE
+"hi! Normal ctermbg=NONE guibg=NONE
+"hi! NonText ctermbg=NONE guibg=NONE guifg=NONE ctermfg=NONE
 
 
 
@@ -121,6 +124,7 @@ let g:webdevicons_enable_ctrlp = 1
 
 " show ALE errors in airline
 let g:airline#extensions#ale#enabled = 1
+let g:airline#extensions#coc#enabled = 1
 " Configure coc
 " if hidden is not set, TextEdit might fail.
 set hidden
@@ -164,6 +168,7 @@ au FileType go nmap <leader>gdv <Plug>(go-def-vertical)
 au FileType go nmap <leader>gdh <Plug>(go-def-split)
 au FileType go nmap <leader>gD <Plug>(go-doc)
 au FileType go nmap <leader>gDv <Plug>(go-doc-vertical)
+au FileType go nmap <leader>tt :GoTestFunc<cr>
 
 " disable :GoDef gd
 let g:go_def_mapping_enabled = 0
@@ -220,7 +225,7 @@ set nobackup
 set nowritebackup
 
 " Better display for messages
-set cmdheight=2
+set cmdheight=1
 
 " You will have bad experience for diagnostic messages when it's default 4000.
 set updatetime=200
@@ -344,12 +349,14 @@ nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 
 
 " set airline theme
-let g:airline_theme='gruvbox'
-let g:airline_powerline_fonts=1
+let g:airline_theme='tomorrow'
+" let g:airline_powerline_fonts=1
 let g:airline#extensions#tabline#enabled=1
+let g:airline#extensions#tabline#fnamemod = ':t'
+let g:airline_section_c = '%t'
 
 " Gruvbox config
-let g:gruvbox_contrast_dark='hard'
+let g:gruvbox_contrast_dark='medium'
 let g:gruvbox_italic=1
 
 " setup Prettier command
@@ -410,3 +417,23 @@ let g:tagbar_type_go = {
 "----------------------------
 nmap <C-_> <Plug>NERDCommenterToggle<cr>
 vmap <C-_> <Plug>NERDCommenterToggle<cr>gv
+
+
+" ------------------------------
+"Plugin: nerd-treesitter
+"------------------------------
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  ensure_installed = "all", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+  -- ignore_install = { "javascript" }, -- List of parsers to ignore installing
+  highlight = {
+    enable = true,              -- false will disable the whole extension
+    -- disable = { "c", "rust" },  -- list of language that will be disabled
+    -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
+    -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
+    -- Using this option may slow down your editor, and you may see some duplicate highlights.
+    -- Instead of true it can also be a list of languages
+    additional_vim_regex_highlighting = false,
+  },
+}
+EOF

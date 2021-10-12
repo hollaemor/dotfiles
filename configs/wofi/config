@@ -1,6 +1,6 @@
 show=drun
-lines=7
-gtk_dark=true
+lines=15
+#gtk_dark=true
 # dynamic_lines=true
 hide-scroll=true
 term=alacritty
@@ -14,3 +14,5 @@ insensitive=true
 prompt=
 image-size=20
 display_generic=true
+#height=500
+#width=700

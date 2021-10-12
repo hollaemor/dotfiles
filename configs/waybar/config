@@ -16,29 +16,27 @@
     "position": "top",
 
     // If height property would be not present, it'd be calculated dynamically
-    "height": 35,
+   // "height": 40,
 
     "modules-left": [
         "sway/workspaces",
         "sway/mode",
 	"custom/spotify"
     ],
-    "modules-center": [
-        "sway/window"
-    ],
+  //  "modules-center": [
+  //      "sway/window"
+  //  ],
     "modules-right": [
         "tray",
-	"idle_inhibitor",
 	"pulseaudio",
         "network",
+	"custom/vpn",
+	"custom/pacman",
+	"custom/bt_mouse",
         "memory",
-        "cpu",
-        "temperature",
-//        "custom/keyboard-layout",
         "battery",
 	"custom/weather",
-        "clock#date",
-        "clock#time"
+        "clock"
     ],
 
 
@@ -53,7 +51,7 @@
             "critical": 15
         },
         // Connected to AC
-        "format": "  {icon}  {capacity}%", // Icon: bolt
+        "format": "{icon}  {capacity}%", // Icon: bolt
         // Not connected to AC
         "format-discharging": "{icon}  {capacity}%",
         "format-icons": [
@@ -66,53 +64,54 @@
         "tooltip": true
     },
 
-    "clock#time": {
+    "clock": {
         "interval": 1,
-        "format": "{:%H:%M:%S}",
-        "tooltip": false
+        "format": " {:%H:%M:%S}",
+	"tooltip-format": "<big>{:%a %e %b %Y}</big>"
     },
-
-    "clock#date": {
-      "interval": 10,
-      "format": "  {:%a %e %b %Y}", // Icon: calendar-alt
-      "tooltip": false
-    },
-
     "cpu": {
         "interval": 5,
-        "format": "  {usage}% ({load})", // Icon: microchip
+        "format": "{}% ", // Icon: microchip
+	"max-length": 10,
         "states": {
           "warning": 70,
           "critical": 90
         }
     },
-
-    "custom/keyboard-layout": {
-      "exec": "swaymsg -t get_inputs | grep -m1 'xkb_active_layout_name' | cut -d '\"' -f4",
-      // Interval set only as a fallback, as the value is updated by signal
-      "interval": 30,
-      "format": "  {}", // Icon: keyboard
-      // Signal sent by Sway key binding (~/.config/sway/key-bindings)
-      "signal": 1, // SIGHUP
-      "tooltip": false
+  "custom/vpn": {
+    "format": " ",
+    "exec": "echo '{\"class\": \"connected\"}'",
+    "exec-if": "test -d /proc/sys/net/ipv4/conf/tun0",
+    "return-type": "json",
+    "interval": 5
+  },
+     "custom/pacman": {
+        "format": "{} ",
+        "interval": 3600,                     // every hour
+        "exec": "checkupdates | wc -l",       // # of updates
+        "exec-if": "exit 0",                  // always run; consider advanced run conditions
+        "on-click": "alacritty --class app_updates -e yay -Syu; pkill -SIGRTMIN+8 waybar", // update system
+        "signal": 8
     },
-
     "memory": {
         "interval": 5,
-        "format": "  {}%", // Icon: memory
+        //"format": "  {}%", // Icon: memory
+	"format": "{}% ",
         "states": {
             "warning": 70,
             "critical": 90
-        }
+        },
+	"on-click": "alacritty --class memory_usage -e htop"
     },
 
     "network": {
         "interval": 5,
         //"format-wifi": "  {essid} ({signalStrength}%)", // Icon: wifi
-        "format-wifi": "  {essid}", // Icon: wifi
+        "format-wifi": " ", // Icon: wifi
         "format-ethernet": "  {ifname}: {ipaddr}/{cidr}", // Icon: ethernet
         "format-disconnected": "⚠ ",
-        "tooltip-format": "{ifname}: {ipaddr}"
+        "tooltip-format": "{essid}: {ifname}: {ipaddr}",
+	"on-click": "alacritty --class network_config -e nmtui"
     },
 
     "sway/mode": {
@@ -128,35 +127,39 @@
     "sway/workspaces": {
         "all-outputs": true,
         "disable-scroll": true,
-        "format": "{icon} {name}",
+        "format": " {icon} ",
         "format-icons": {
-            "1": "",
-            "2": "", // Icon: mail
+	    "1": "",
+            "2": "", // Icon: mail
             "3": "", // Icon: code
             "4": "", // Icon: terminal
             "5": "", // Icon: terminal
+	    "9": ":",
             "10": "",
-            "urgent": "",
-            "focused": "",
-            "default": ""
+            "urgent": ""
+            //"focused": "",
+            //"default": "" 
         }
     },
 
     "pulseaudio": {
         //"scroll-step": 1,
-        "format": "{icon} {volume}%",
-        "format-bluetooth": "{icon}  {volume}%",
+        "format": "{volume}% {icon} {format_source}",
+        "format-bluetooth": "{icon} {desc} {volume}%",
+	"format-source": "",
+	"format-source-muted": "",
         "format-muted": "",
         "format-icons": {
             "headphones": "",
+            "headset": "",
             "handsfree": "",
-            "headset": "",
             "phone": "",
             "portable": "",
             "car": "",
             "default": ["", ""]
         },
-        "on-click": "pavucontrol"
+        "on-click": "pavucontrol",
+	"on-click-right": "~/.config/waybar/modules/bluetooth_devices.sh connect 88:D0:39:58:C9:BD"
     },
 	"custom/spotify": {
 	    "format": " {}",
@@ -183,17 +186,14 @@
       ],
       "tooltip": true
     },
-   "idle_inhibitor": {
-        "format": "{icon}",
-        "format-icons": {
-            "activated": "",
-            "deactivated": ""
-        },
-	"tooltip": false
-    },
     "tray": {
         "icon-size": 21,
         "spacing": 10
+    },
+    "custom/bt_mouse": {
+	    "format": "",
+	    "on-click": "~/.config/waybar/modules/bluetooth_devices.sh connect F4:19:03:1B:22:3E",
+	    "on-click-right": "~/.config/waybar/modules/bluetooth_devices.sh disconnect F4:19:03:1B:22:3E"
     }
 
 }

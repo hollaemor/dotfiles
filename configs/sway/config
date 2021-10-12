@@ -25,29 +25,40 @@ set $menu wofi | xargs swaymsg exec --
 
 # set font
 #font pango:Cantarell 14px
-font pango:"FuraCode Nerd Font" 14
+font pango:RobotoMono Nerd Font 14
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-# output * bg ~/Pictures/wallpapers/wallpaper3.jpg fill
-output * bg ~/Pictures/wallpapers/wallpaper_1.png fill
+output * bg ~/Pictures/wallpapers/wallpaper_6.jpg fill
 #
 # Example configuration:
 #
  output eDP-1 scale 1
  output eDP-1 resolution 3000x2000 position 0,0
+ 
+ output DP-2 resolution 2560x1440 position 3000,0
+ output DP-1 resolution 2560x1440 position 5560,0
+
+ output DP-2 scale 1
+ output DP-1 scale 1
+
 #
+# enable clamshell mode: when I use external monitors
+set $laptop eDP-1
+bindswitch --reload --locked lid:on output $laptop disable
+bindswitch --reload --locked lid:off output $laptop enable
+
 # You can get the names of your outputs by running: swaymsg -t get_outputs
 
 ### Idle configuration
 #
 # Example configuration:
 #
- exec swayidle -w \
-          timeout 300 'swaylock --screenshots --clock --indicator --effect-blur 7x5 --effect-vignette 0.5:0.5 --fade-in 0.2' \
+exec swayidle -w \
+          timeout 300 'swaylock' \
           timeout 600 'swaymsg "output * dpms off"' \
                resume 'swaymsg "output * dpms on"' \
-          before-sleep 'swaylock --screenshots --clock --indicator --effect-blur 7x5 --effect-vignette 0.5:0.5 --fade-in 0.2'
+          before-sleep 'swaylock'
 #
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
@@ -64,6 +75,12 @@ output * bg ~/Pictures/wallpapers/wallpaper_1.png fill
        natural_scroll enabled
        middle_emulation enabled
        scroll_method two_finger
+   }
+
+   input "1:1:AT_Translated_Set_2_keyboard" {
+      xkb_layout us
+      xkb_variant altgr-intl
+      xkb_options compose:menu,level3:ralt_switch
    }
 #
 # You can get the names of your inputs by running: swaymsg -t get_inputs
@@ -101,7 +118,7 @@ bindsym $mod+Shift+z exec swaynag -t warning -m 'Sleepy time?!?!' -b 'ZzZz...' '
 
 
 # Sway lock
-# bindsym $mod+Shift+l exec swaylock -i /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png 
+# bindsym $mod+Shift+l exec swaylock
 #
 # Moving around:
 #
@@ -128,32 +145,43 @@ bindsym $mod+Shift+z exec swaynag -t warning -m 'Sleepy time?!?!' -b 'ZzZz...' '
     bindsym $mod+Shift+Right move right
 #
 # Workspaces:
-#
+set $workspace1 1 
+set $workspace2 2 
+set $workspace9 9
+set $workspace10 10
     # Switch to workspace
-    bindsym $mod+1 workspace 1
-    bindsym $mod+2 workspace 2
+    bindsym $mod+1 workspace $workspace1
+    bindsym $mod+2 workspace $workspace2 
     bindsym $mod+3 workspace 3
     bindsym $mod+4 workspace 4
     bindsym $mod+5 workspace 5
     bindsym $mod+6 workspace 6
     bindsym $mod+7 workspace 7
     bindsym $mod+8 workspace 8
-    bindsym $mod+9 workspace 9
-    bindsym $mod+0 workspace 10
+    bindsym $mod+9 workspace $workspace9
+    bindsym $mod+0 workspace $workspace10
     # Move focused container to workspace
-    bindsym $mod+Shift+1 move container to workspace 1
-    bindsym $mod+Shift+2 move container to workspace 2
+    bindsym $mod+Shift+1 move container to workspace $workspace1
+    bindsym $mod+Shift+2 move container to workspace $workspace2
     bindsym $mod+Shift+3 move container to workspace 3
     bindsym $mod+Shift+4 move container to workspace 4
     bindsym $mod+Shift+5 move container to workspace 5
     bindsym $mod+Shift+6 move container to workspace 6
     bindsym $mod+Shift+7 move container to workspace 7
     bindsym $mod+Shift+8 move container to workspace 8
-    bindsym $mod+Shift+9 move container to workspace 9
-    bindsym $mod+Shift+0 move container to workspace 10
+    bindsym $mod+Shift+9 move container to workspace $workspace9
+    bindsym $mod+Shift+0 move container to workspace $workspace10
     # Note: workspaces can have any name you want, not just numbers.
     # We just use 1-10 as the default.
+# 
+# Assign Windows to workspaces
+assign [class="Spotify"] $workspace10
+assign [class="firefox"] $workspace1
 #
+# inhibit idle for fullscreen windows
+for_window [class="^.*"] inhibit_idle fullscreen
+for_window [app_id="^.*"] inhibit_idle fullscreen
+
 # Layout stuff:
 #
     # You can "split" the current object of your focus with
@@ -221,7 +249,7 @@ bindsym $mod+r mode "resize"
 #
 # Read `man 5 sway-bar` for more information about this section.
 bar {
-    position top
+    # position top
 
     # When the status_command prints a new line to stdout, swaybar updates.
     # The default just shows the current date and time.
@@ -232,19 +260,39 @@ bar {
 #        background #323232
 #        inactive_workspace #32323200 #32323200 #5c5c5c
 #    }
+    #font pango:DejaVu Sans Mono, Font Awesome 5 Free 14
+    #font pango:DejaVu Sans Mono, RobotoMono Nerd Font 20
+    position top
+    colors {
+        separator #89aaef
+        background #00000055
+        statusline #89aaef
+        focused_workspace #747a7d #747a7d #ffffff
+        active_workspace #333333 #333333 #ffffff
+        inactive_workspace #333333 #333333 #888888
+        urgent_workspace #2f343a #900000 #ffffff
+    }
 
 swaybar_command waybar
+ #status_command i3status-rs
 }
 
 # Window Borders
-default_border pixel 5
+default_border pixel 2
 default_floating_border normal
 # hide_edge_borders both
 
 # window borders
-client.focused #ffbb00bb #ffbb00bb #ffffffbb #000000aa #ffbb00bb
-client.unfocused #000000aa #000000aa #ffffffbb #000000aa #000000aa
-client.urgent #dd1b16bb #dd1b16bb #ffffff #dd1b16bb #dd1b16bb
+#client.focused #ffbb00bb #ffbb00bb #ffffffbb #000000aa #ffbb00bb
+#client.unfocused #000000aa #000000aa #ffffffbb #000000aa #000000aa
+#client.urgent #dd1b16bb #dd1b16bb #ffffff #dd1b16bb #dd1b16bb
+
+client.focused          #4c7899 #285577 #ffffff #2e9ef4   #abb2bf
+client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
+client.unfocused        #333333 #222222 #888888 #292d2e   #222222
+client.urgent           #2f343a #900000 #ffffff #900000   #900000
+client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
+client.background       #ffffff
 
 # Brightness
 bindsym XF86MonBrightnessDown exec light -U 5
@@ -255,23 +303,33 @@ bindsym XF86MonBrightnessUp exec light -A 5
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@  +5%
 bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
 bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle
 
 gaps inner 10
 gaps outer 5
 
 # startup apps
 exec mpd
-exec blueman-applet
+# exec blueman-applet
 exec mako
+
+# turn on bluetooth ctl
+exec bluetoothctl power on
+
+# turn on wlsunset - color temperature setter for Wayland
+exec wlsunset -l 53.59 -L 9.93 -g 0.8
+
+# exec_always for laptop clamshell mode
+exec_always ~/.config/sway/clam_shell_mode.sh
 
 # Shutdown, Reboot, Lock Screen, and Logout 
 
-set $power_mode "power"
+set $power_mode " power"
 bindsym $mod+Shift+p      mode $power_mode
 mode $power_mode {
     bindsym p         exec systemctl poweroff
     bindsym r         exec systemctl reboot 
-    bindsym l         exec swaylock --screenshots --clock --indicator --effect-blur 7x5 --effect-vignette 0.5:0.5 --fade-in 0.2, mode "default"
+    bindsym l         exec swaylock, mode "default"
     bindsym q         exec --no-startup-id i3-msg exit, mode "default"
     bindsym h         exec systemctl hibernate 
     #bindsym s        exec sudo  /lib/systemd/systemd-sleep hybrid-sleep 
@@ -281,7 +339,8 @@ mode $power_mode {
     bindsym Escape    mode "default"
 }
 
-mode "application" {
+set $application_mode " applications" 
+mode $application_mode {
   bindsym f exec firefox; mode "default"
   bindsym i exec _JAVA_AWT_WM_NONREPARENTING=1 ~/bin/idea; mode "default"
   bindsym c exec code; mode "default"
@@ -291,7 +350,23 @@ mode "application" {
   bindsym Escape mode "default"
 }
 
-bindsym $mod+Shift+a mode "application"
+bindsym $mod+Shift+a mode $application_mode
+
+
+# GTK3 theme
+set $gnome-schema org.gnome.desktop.interface
+
+#set $opacity 0.9
+#for_window [class=".*"] opacity $opacity
+#for_window [app_id=".*"] opacity $opacity
+
+exec_always {
+    gsettings set $gnome-schema gtk-theme 'Adwaita-dark'
+    gsettings set $gnome-schema icon-theme 'Adwaita'
+    gsettings set $gnome-schema cursor-theme 'Adwaita'
+    gsettings set $gnome-schema font-name 'Cantarell Regular'
+}
+
 
 include /etc/sway/config.d/*
-
+include ~/.config/sway/gruvbox.config

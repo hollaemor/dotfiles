@@ -51,10 +51,14 @@
 /* The whole bar */
 #waybar {
     /*background: #323232; */
-    background: rgba(43, 48, 59, 0.7);
+    /*background: rgba(43, 48, 59, 0.5);*/
     color: white;
-    font-family: Roboto, 'Font Awesome 5', Cantarell, Noto Sans, sans-serif;
-    font-size: 13px;
+    font-family:'mononoki Nerd Font', Roboto, 'Font Awesome 5', Cantarell, Noto Sans, sans-serif;
+    font-size: 20px;
+ /*border-bottom: 3px solid rgba(100, 114, 125, 0.5);*/
+  border-bottom: 2px solid #458588;
+/*border-bottom: 1px solid alpha(@unfocused_borders, 0.85);*/
+background: linear-gradient(to top, shade(alpha(@borders, 0.80), 1.15), shade(alpha(@borders, 0.9), 1.25));
 }
 
 /* Each module */
@@ -67,6 +71,11 @@
 #network,
 #pulseaudio,
 #temperature,
+#custom-spotify,
+#custom-vpn,
+#custom-weather,
+#custom-pacman,
+#custom-bt_mouse,
 #tray {
     padding-left: 10px;
     padding-right: 10px;
@@ -101,9 +110,6 @@
     animation-duration: 2s;
 }
 
-#clock {
-    font-weight: bold;
-}
 
 #cpu {
     /* No styles */
@@ -134,10 +140,11 @@
 }
 
 #mode {
-    background: #64727D;
-    border-top: 2px solid white;
+    /*border-top: 2px solid white;*/
     /* To compensate for the top border and still have vertical centering */
-    padding-bottom: 2px;
+    /*padding-bottom: 2px;*/
+	color: #fb4934;
+	font-weight:bold;
 }
 
 #network {
@@ -157,7 +164,7 @@
 }
 
 #custom-spotify {
-    color: rgb(102, 220, 105);
+    color: #b8bb26;
 }
 
 #temperature {
@@ -177,21 +184,28 @@
 }
 
 #workspaces button {
-    border-top: 2px solid transparent;
+    border-bottom: 3px solid transparent;
     /* To compensate for the top border and still have vertical centering */
     padding-bottom: 2px;
     padding-left: 10px;
     padding-right: 10px;
     color: #888888;
+    padding-top: 6px;
 }
 
 #workspaces button.focused {
-    border-color: #4c7899;
-    color: white;
-    background-color: #285577;
+    font-weight: bold;
+    color: #ffe27a;
+	background-color: #458588;
 }
 
 #workspaces button.urgent {
-    border-color: #c9545d;
-    color: #c9545d;
+	color: black;
+	background-color: #cc241d;
 }
+
+#custom-vpn {
+	font-weight: bold;
+	color: #fe8019;
+}
+

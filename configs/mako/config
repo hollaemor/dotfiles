@@ -1,6 +1,14 @@
-font=pango:Fira Code
-background-color=#282C34
-text-color=#ABB2BF
-border-size=0
-default-timeout=1800
-border-radius=7
+font=mononoki Nerd Font 14
+background-color=#24283b
+text-color=#c0caf5
+width=370
+margin=0,20,20
+padding=10
+border-size=2
+border-color=#414868
+border-radius=5
+default-timeout=10000
+group-by=summary
+
+[grouped]
+format=<b>%s</b>\n%b

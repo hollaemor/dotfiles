@@ -68,35 +68,20 @@ scrolling:
 
 # Font configuration (changes require restart)
 font:
-  # Normal (roman) font face
   normal:
-    family: "FuraCode Nerd Font"
-    # The `style` can be specified to pick a specific face.
+    family: CaskaydiaCove Nerd Font
     style: Regular
-
-  # Bold font face
   bold:
-    # Font family
-    #
-    # If the bold family is not specified, it will fall back to the
-    # value specified for the normal font.
-    family: "FuraCode Nerd Font"
-
-    # The `style` can be specified to pick a specific face.
+    family: OperatorMono Nerd Font
     style: Bold
 
-  # Italic font face
+  bold_italic:
+    family: OperatorMono Nerd Font
+    style: Bold Italic
   italic:
-    # Font family
-    #
-    # If the italic family is not specified, it will fall back to the
-    # value specified for the normal font.
-    family: "FuraCode Nerd Font"
+    family: OperatorMono Nerd Font
+    style: Bold Italic
 
-    # The `style` can be specified to pick a specific face.
-    style: Italic
-
-  # Point size
   size: 16.0
 
   # Offset is the extra space around each character. `offset.y` can be thought of
@@ -242,7 +227,7 @@ schemes:
       cyan: '#89ddff'
       white: '#ffffff'  # Arbitrary
 
-colors: *gruvbox_dark
+colors: *monkai_pro
 
   # Dim colors
   #
@@ -298,7 +283,7 @@ bell:
 #
 # Window opacity as a floating point number from `0.0` to `1.0`.
 # The value `0.0` is completely transparent and `1.0` is opaque.
-background_opacity: 0.99
+background_opacity: 0.98
 
 # Mouse bindings
 #
@@ -330,7 +315,7 @@ mouse:
   # If this is `true`, the cursor is temporarily hidden when typing.
   hide_when_typing: true
 
-  url:
+  hints:
     # URL launcher
     #
     # This program is executed when clicking on a text which is recognized as a URL.
