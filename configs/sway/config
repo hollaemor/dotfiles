@@ -14,7 +14,7 @@ set $down j
 set $up k
 set $right l
 # Your preferred terminal emulator
-set $term alacritty
+set $term kitty
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
@@ -29,18 +29,17 @@ font pango:RobotoMono Nerd Font 14
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg ~/Pictures/wallpapers/wallpaper_6.jpg fill
+output * bg /usr/share/backgrounds/gnome/LightBulb.jpg fill
 #
 # Example configuration:
 #
  output eDP-1 scale 1
  output eDP-1 resolution 3000x2000 position 0,0
  
- output DP-2 resolution 2560x1440 position 3000,0
- output DP-1 resolution 2560x1440 position 5560,0
+ #output DP-2 resolution 2560x1440 position 3000,0
+ #output DP-1 resolution 2560x1440 position 5560,0
 
- output DP-2 scale 1
- output DP-1 scale 1
+ output DP-2 scale 0.7
 
 #
 # enable clamshell mode: when I use external monitors
@@ -317,7 +316,7 @@ exec mako
 exec bluetoothctl power on
 
 # turn on wlsunset - color temperature setter for Wayland
-exec wlsunset -l 53.59 -L 9.93 -g 0.8
+# exec wlsunset -l 53.59 -L 9.93 -g 0.8
 
 # exec_always for laptop clamshell mode
 exec_always ~/.config/sway/clam_shell_mode.sh

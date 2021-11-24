@@ -1,8 +1,6 @@
 " Plugins 
 call plug#begin('~/.vim/plugged')
 
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'scrooloose/nerdtree'
@@ -51,6 +49,18 @@ Plug 'sainnhe/everforest'
 Plug 'sainnhe/gruvbox-material'
 Plug 'folke/tokyonight.nvim'
 Plug 'morhetz/gruvbox'
+Plug 'Mofiqul/vscode.nvim' 
+Plug 'olimorris/onedarkpro.nvim'
+
+" Telescope
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+
+" lualine
+Plug 'hoob3rt/lualine.nvim'
+
+Plug 'kyazdani42/nvim-web-devicons'
+Plug 'akinsho/bufferline.nvim'
 
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 call plug#end()
@@ -87,7 +97,7 @@ set noswapfile
 set scrolloff=5
 
 " highlight current line
-" set cursorline
+"set cursorline
 set nocursorline
 " Enable folding with the spacebar
 nnoremap <space> za
@@ -101,14 +111,27 @@ let g:SimpylFold_docstring_preview=1
 
 " Color Scheme and background
 set termguicolors
-"set background=dark
+set background=dark
 let python_highlight_all=1
-colorscheme tokyonight
+let g:gruvbox_material_background = 'hard'
+let g:gruvbox_material_enable_italic = 1
+let g:gruvbox_material_enable_bold = 1
+
+colorscheme gruvbox-material
 " Fix transparent background
 "hi! Normal ctermbg=NONE guibg=NONE
 "hi! NonText ctermbg=NONE guibg=NONE guifg=NONE ctermfg=NONE
 
-
+" Enable background transparency
+"hi Normal guibg=none ctermbg=none    
+"hi LineNr guibg=none ctermbg=none    
+"hi Folded guibg=none ctermbg=none    
+"hi NonText guibg=none ctermbg=none    
+"hi SpecialKey guibg=none ctermbg=none    
+"hi VertSplit guibg=none ctermbg=none    
+"hi SignColumn guibg=none ctermbg=none    
+"hi EndOfBuffer guibg=none ctermbg=none 
+"hi NormalNC guibg=NONE
 
 
 
@@ -123,8 +146,8 @@ let g:ale_sign_warning = '⚠'
 let g:webdevicons_enable_ctrlp = 1
 
 " show ALE errors in airline
-let g:airline#extensions#ale#enabled = 1
-let g:airline#extensions#coc#enabled = 1
+"let g:airline#extensions#ale#enabled = 1
+"let g:airline#extensions#coc#enabled = 1
 " Configure coc
 " if hidden is not set, TextEdit might fail.
 set hidden
@@ -326,7 +349,7 @@ command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
 
 " Add status line support, for integration with other plugin, checkout `:h coc-status`
-set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')} 
+"set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')} 
 set laststatus=2
 
 " Using CocList
@@ -349,11 +372,11 @@ nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 
 
 " set airline theme
-let g:airline_theme='tomorrow'
+"let g:airline_theme='tomorrow'
 " let g:airline_powerline_fonts=1
-let g:airline#extensions#tabline#enabled=1
-let g:airline#extensions#tabline#fnamemod = ':t'
-let g:airline_section_c = '%t'
+"let g:airline#extensions#tabline#enabled=1
+"let g:airline#extensions#tabline#fnamemod = ':t'
+"let g:airline_section_c = '%t'
 
 " Gruvbox config
 let g:gruvbox_contrast_dark='medium'
@@ -436,4 +459,58 @@ require'nvim-treesitter.configs'.setup {
     additional_vim_regex_highlighting = false,
   },
 }
+
+
+require'lualine'.setup {
+  options = {
+    icons_enabled = true,
+    theme = 'gruvbox-material',
+    component_separators = {'', ''},
+    section_separators = {'', ''},
+    disabled_filetypes = {}
+  },
+  sections = {
+    lualine_a = {'mode'},
+    lualine_b = {'branch'},
+    lualine_c = {'filename'},
+    lualine_x = {'encoding', 'fileformat', 'filetype'},
+    lualine_y = {'progress'},
+    lualine_z = {'location','g:coc_status'}
+  },
+  inactive_sections = {
+    lualine_a = {},
+    lualine_b = {},
+    lualine_c = {'filename'},
+    lualine_x = {'location'},
+    lualine_y = {},
+    lualine_z = {}
+  },
+  tabline = {},
+  extensions = {'fugitive'}
+}
+
+require("bufferline").setup{}
+
+local onedarkpro = require('onedarkpro')
+onedarkpro.setup({
+  theme = "onedark", -- Override with "onedark" or "onelight". Alternatively, don't specify a value and let `vim.o.background` set the theme
+  colors = {}, -- Override default colors. Can specify colors for "onelight" or "onedark" themes
+  hlgroups = {}, -- Override default highlight groups
+  styles = {
+      strings = "italic", -- Style that is applied to strings
+      comments = "NONE", -- Style that is applied to comments
+      keywords = "bold,italic", -- Style that is applied to keywords
+      functions = "bold", -- Style that is applied to functions
+      variables = "NONE", -- Style that is applied to variables
+  },
+  options = {
+      bold = true, -- Use the themes opinionated bold styles?
+      italic = true, -- Use the themes opinionated italic styles?
+      underline = true, -- Use the themes opinionated underline styles?
+      undercurl = true, -- Use the themes opinionated undercurl styles?
+      cursorline = false, -- Use cursorline highlighting?
+      transparent = false, -- Use a transparent background?
+  }
+})
+-- onedarkpro.load()
 EOF

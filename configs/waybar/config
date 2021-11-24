@@ -90,7 +90,7 @@
         "interval": 3600,                     // every hour
         "exec": "checkupdates | wc -l",       // # of updates
         "exec-if": "exit 0",                  // always run; consider advanced run conditions
-        "on-click": "alacritty --class app_updates -e yay -Syu; pkill -SIGRTMIN+8 waybar", // update system
+        "on-click": "kitty --class app_updates -e yay -Syu; pkill -SIGRTMIN+8 waybar", // update system
         "signal": 8
     },
     "memory": {
@@ -101,7 +101,7 @@
             "warning": 70,
             "critical": 90
         },
-	"on-click": "alacritty --class memory_usage -e htop"
+	"on-click": "kitty --class memory_usage -e htop"
     },
 
     "network": {
@@ -111,7 +111,7 @@
         "format-ethernet": "  {ifname}: {ipaddr}/{cidr}", // Icon: ethernet
         "format-disconnected": "⚠ ",
         "tooltip-format": "{essid}: {ifname}: {ipaddr}",
-	"on-click": "alacritty --class network_config -e nmtui"
+	"on-click": "kitty --class network_config -e nmtui"
     },
 
     "sway/mode": {
