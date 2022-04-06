@@ -2,12 +2,17 @@
 	"coc.preferences.formatOnSaveFiletypes": [
 		"go",
 		"css",
-		"ts",
-		"js",
-		"rs",
+		"typescript",
+		"javascript",
+		"rust",
 		"html",
-		"cs"
+		"csharp",
+		"python",
+		"java"
 	],
+    "codeLens.enable": true,
+    "java.referencesCodeLens.enabled": true,
+    "java.implementationsCodeLens.enabled": true,
 	"suggest.completionItemKindLabels": {
 		"method": "  ",
 		"function": "  ",
@@ -34,8 +39,20 @@
 		"constructor": "  ",
 		"value": "  ",
 		"enumMember": "  "
-  },
-  "git.enableGutters": true,
-  "git.addGBlameToBufferVar": true,
-  "git.addGBlameToVirtualText": true
+	},
+	"git.enableGutters": true,
+	"git.addGBlameToBufferVar": true,
+	"git.addGBlameToVirtualText": true,
+	"languageserver": {
+		"terraform": {
+			"command": "terraform-lsp",
+			"filetypes": [
+				"terraform",
+				"tf"
+			],
+			"initializationOptions": {},
+			"settings": {}
+		}
+	},
+    "python.formatting.provider": "black"
 }

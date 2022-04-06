@@ -53,8 +53,8 @@
     /*background: #323232; */
     /*background: rgba(43, 48, 59, 0.5);*/
     color: white;
-    font-family:'mononoki Nerd Font', Roboto, 'Font Awesome 5', Cantarell, Noto Sans, sans-serif;
-    font-size: 20px;
+    font-family:'FuraCode Nerd Font', Roboto, 'Font Awesome 5', Cantarell, Noto Sans, sans-serif;
+    font-size: 1.3em;
  /*border-bottom: 3px solid rgba(100, 114, 125, 0.5);*/
   border-bottom: 2px solid #458588;
 /*border-bottom: 1px solid alpha(@unfocused_borders, 0.85);*/

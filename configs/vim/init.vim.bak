@@ -1,4 +1,4 @@
-" Plugins 
+" Plugin 
 call plug#begin('~/.vim/plugged')
 
 Plug 'ctrlpvim/ctrlp.vim'
@@ -6,33 +6,21 @@ Plug 'airblade/vim-gitgutter'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-fugitive'
 Plug 'tmhedberg/SimpylFold'
-Plug 'vim-scripts/indentpython.vim'
-Plug 'nvie/vim-flake8'
 Plug 'altercation/vim-colors-solarized'
-Plug 'jeetsukumaran/vim-pythonsense'
 Plug 'jiangmiao/auto-pairs'
-Plug 'dense-analysis/ale'
-Plug 'Vimjas/vim-python-pep8-indent'
 Plug 'neoclide/coc.nvim', {'branch': 'release' }
 Plug 'joshdick/onedark.vim'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'tpope/vim-eunuch'
-" Plug 'ekalinin/dockerfile.vim'
 Plug 'ryanoasis/vim-devicons'
 Plug 'rust-lang/rust.vim'
 Plug 'janko-m/vim-test'
 Plug 'tpope/vim-repeat'
 Plug 'majutsushi/tagbar'
 Plug 'tpope/vim-surround'
-" Plug 'leafgarland/typescript-vim'
-" Plug 'pangloss/vim-javascript'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'ap/vim-css-color'
-Plug 'flazz/vim-colorschemes'
 Plug 'junegunn/vim-emoji'
-" Plug 'cespare/vim-toml'
-" Plug 'jparise/vim-graphql'
-" Plug 'mxw/vim-jsx'
 Plug 'preservim/nerdcommenter'
 
 Plug 'tpope/vim-dispatch'
@@ -47,22 +35,11 @@ Plug 'sainnhe/sonokai'
 Plug 'sainnhe/edge'
 Plug 'sainnhe/everforest'
 Plug 'sainnhe/gruvbox-material'
-Plug 'folke/tokyonight.nvim'
-Plug 'morhetz/gruvbox'
 Plug 'Mofiqul/vscode.nvim' 
 Plug 'olimorris/onedarkpro.nvim'
+Plug 'dracula/vim', { 'as': 'dracula' }
 
-" Telescope
-Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim'
 
-" lualine
-Plug 'hoob3rt/lualine.nvim'
-
-Plug 'kyazdani42/nvim-web-devicons'
-Plug 'akinsho/bufferline.nvim'
-
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 call plug#end()
 
 
@@ -94,7 +71,7 @@ set ic
 " do not create swap files
 set noswapfile
 
-set scrolloff=5
+set scrolloff=10
 
 " highlight current line
 "set cursorline
@@ -116,38 +93,14 @@ let python_highlight_all=1
 let g:gruvbox_material_background = 'hard'
 let g:gruvbox_material_enable_italic = 1
 let g:gruvbox_material_enable_bold = 1
+let g:gruvbox_material_transparent_background = 1
 
 colorscheme gruvbox-material
-" Fix transparent background
-"hi! Normal ctermbg=NONE guibg=NONE
-"hi! NonText ctermbg=NONE guibg=NONE guifg=NONE ctermfg=NONE
 
-" Enable background transparency
-"hi Normal guibg=none ctermbg=none    
-"hi LineNr guibg=none ctermbg=none    
-"hi Folded guibg=none ctermbg=none    
-"hi NonText guibg=none ctermbg=none    
-"hi SpecialKey guibg=none ctermbg=none    
-"hi VertSplit guibg=none ctermbg=none    
-"hi SignColumn guibg=none ctermbg=none    
-"hi EndOfBuffer guibg=none ctermbg=none 
-"hi NormalNC guibg=NONE
-
-
-
-
-
-" Configure ALE
-let g:ale_fix_on_save = 1
-let g:ale_sign_error = '⤫'
-let g:ale_sign_warning = '⚠'
 
 " Update CtrlP to use devicons
 let g:webdevicons_enable_ctrlp = 1
 
-" show ALE errors in airline
-"let g:airline#extensions#ale#enabled = 1
-"let g:airline#extensions#coc#enabled = 1
 " Configure coc
 " if hidden is not set, TextEdit might fail.
 set hidden
@@ -371,33 +324,8 @@ nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 
 
-" set airline theme
-"let g:airline_theme='tomorrow'
-" let g:airline_powerline_fonts=1
-"let g:airline#extensions#tabline#enabled=1
-"let g:airline#extensions#tabline#fnamemod = ':t'
-"let g:airline_section_c = '%t'
-
-" Gruvbox config
-let g:gruvbox_contrast_dark='medium'
-let g:gruvbox_italic=1
-
 " setup Prettier command
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
-
-
-" set python interpreter for neovim
-let g:python3_host_prog = '/usr/bin/python3'
-" disbale python2
-let g:loaded_python_provider = 0
-
-
-"-----------------------------------------------------
-"Plugin: scrooloose/nerdtree
-"-----------------------------------------------------
-nnoremap <leader>n :NERDTreeToggle<cr>
-let NERDTreeIgnore=['\.pyc$', '\~$', '^node_modules$', '^\.DS_Store$', '^\.git$'] "ignore files in NERDTree
-let NERDTreeQuitOnOpen = 1
 
 
 " -------------------------------------
@@ -440,77 +368,3 @@ let g:tagbar_type_go = {
 "----------------------------
 nmap <C-_> <Plug>NERDCommenterToggle<cr>
 vmap <C-_> <Plug>NERDCommenterToggle<cr>gv
-
-
-" ------------------------------
-"Plugin: nerd-treesitter
-"------------------------------
-lua <<EOF
-require'nvim-treesitter.configs'.setup {
-  ensure_installed = "all", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
-  -- ignore_install = { "javascript" }, -- List of parsers to ignore installing
-  highlight = {
-    enable = true,              -- false will disable the whole extension
-    -- disable = { "c", "rust" },  -- list of language that will be disabled
-    -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
-    -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
-    -- Using this option may slow down your editor, and you may see some duplicate highlights.
-    -- Instead of true it can also be a list of languages
-    additional_vim_regex_highlighting = false,
-  },
-}
-
-
-require'lualine'.setup {
-  options = {
-    icons_enabled = true,
-    theme = 'gruvbox-material',
-    component_separators = {'', ''},
-    section_separators = {'', ''},
-    disabled_filetypes = {}
-  },
-  sections = {
-    lualine_a = {'mode'},
-    lualine_b = {'branch'},
-    lualine_c = {'filename'},
-    lualine_x = {'encoding', 'fileformat', 'filetype'},
-    lualine_y = {'progress'},
-    lualine_z = {'location','g:coc_status'}
-  },
-  inactive_sections = {
-    lualine_a = {},
-    lualine_b = {},
-    lualine_c = {'filename'},
-    lualine_x = {'location'},
-    lualine_y = {},
-    lualine_z = {}
-  },
-  tabline = {},
-  extensions = {'fugitive'}
-}
-
-require("bufferline").setup{}
-
-local onedarkpro = require('onedarkpro')
-onedarkpro.setup({
-  theme = "onedark", -- Override with "onedark" or "onelight". Alternatively, don't specify a value and let `vim.o.background` set the theme
-  colors = {}, -- Override default colors. Can specify colors for "onelight" or "onedark" themes
-  hlgroups = {}, -- Override default highlight groups
-  styles = {
-      strings = "italic", -- Style that is applied to strings
-      comments = "NONE", -- Style that is applied to comments
-      keywords = "bold,italic", -- Style that is applied to keywords
-      functions = "bold", -- Style that is applied to functions
-      variables = "NONE", -- Style that is applied to variables
-  },
-  options = {
-      bold = true, -- Use the themes opinionated bold styles?
-      italic = true, -- Use the themes opinionated italic styles?
-      underline = true, -- Use the themes opinionated underline styles?
-      undercurl = true, -- Use the themes opinionated undercurl styles?
-      cursorline = false, -- Use cursorline highlighting?
-      transparent = false, -- Use a transparent background?
-  }
-})
--- onedarkpro.load()
-EOF
