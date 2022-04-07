@@ -23,6 +23,7 @@ local options = {
 	shiftwidth = 2,
   signcolumn = "yes",
   undofile = true, -- save undo history
+  termguicolors = true,
 }
 
 vim.opt.shortmess:append "c"
