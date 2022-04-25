@@ -3,6 +3,11 @@ local term_opts = { silent = true}
 
 local keymap = vim.api.nvim_set_keymap
 
+-- remap space as leader key
+keymap("", "<space>", "<Nop>", opts)
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
+
 -- Modes
 -- normal mode = "n"
 -- insert mode = "i"
@@ -23,9 +28,13 @@ keymap("n","<Right>", "<Nop>", opts)
 keymap("n", "<S-Right>", ":bnext<cr>", opts)
 keymap("n", "<S-Left>", ":bprevious<cr>", opts)
 
--- Telescope find files
-keymap("n", "<C-p>", ":Telescope find_files<cr>", opts)
+-- Telescope
+keymap("n", "<leader>ff", ":Telescope find_files<cr>", opts)
+keymap("n", "<leader>fg", ":Telescope live_grep<cr>", opts)
+keymap("n", "<leader>fb", ":Telescope buffers<cr>", opts)
+keymap("n", "<leader>fh", ":Telescope help_tags<cr>", opts)
+
 
 -- Toggle Nvim tree
-keymap("n", "<C-n>", ":NvimTreeToggle<cr>", opts)
+keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts)
 

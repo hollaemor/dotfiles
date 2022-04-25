@@ -29,7 +29,7 @@ font pango:RobotoMono Nerd Font 14
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /usr/share/backgrounds/gnome/LightBulb.jpg fill
+output * bg ~/Pictures/wallpapers/wallpaper_6.jpg fill
 #
 # Example configuration:
 #
