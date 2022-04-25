@@ -25,3 +25,6 @@ require 'user.rust-tools'
 
 require 'user.notify'
 require 'user.toggleterm'
+
+-- DB stuff
+require 'user.db-ui'

@@ -123,6 +123,9 @@ return packer.startup(function(use)
   use 'kristijanhusak/vim-dadbod-ui' -- UI for previous plugin
   use 'kristijanhusak/vim-dadbod-completion' -- lsp completions for db
 
+  -- Git specific
+  use 'tpope/vim-fugitive'
+
   -- floating terminal
   use {"akinsho/toggleterm.nvim"}
 
