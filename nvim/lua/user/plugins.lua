@@ -105,21 +105,21 @@ return packer.startup(function(use)
 
   -- test runners
   use 'vim-test/vim-test'
-  use {'rcarriga/vim-ultest', run = ':UpdateRemotePlugins'}
+  use { 'rcarriga/vim-ultest', run = ':UpdateRemotePlugins' }
 
-  use 'hrsh7th/cmp-emoji'  -- emogi supports
+  use 'hrsh7th/cmp-emoji' -- emogi supports
   use 'p00f/nvim-ts-rainbow' -- uses different colors for bracket pairs
 
 
   -- programming language specific
   use 'simrat39/rust-tools.nvim' --rust
-  use {'ray-x/go.nvim', run = ":GoUpdateBinaries" }-- Go
+  use { 'ray-x/go.nvim', run = ":GoUpdateBinaries" } -- Go
 
   use 'rcarriga/nvim-notify' -- cool notification
 
 
   -- database related
-  use  'tpope/vim-dadbod' -- for interacting with DB
+  use 'tpope/vim-dadbod' -- for interacting with DB
   use 'kristijanhusak/vim-dadbod-ui' -- UI for previous plugin
   use 'kristijanhusak/vim-dadbod-completion' -- lsp completions for db
 
@@ -127,7 +127,10 @@ return packer.startup(function(use)
   use 'tpope/vim-fugitive'
 
   -- floating terminal
-  use {"akinsho/toggleterm.nvim"}
+  use { "akinsho/toggleterm.nvim" }
+
+  use 'mfussenegger/nvim-jdtls' -- java lsp
+  use "folke/which-key.nvim"
 
   -- Automatically setup config after cloning Packer repo
   -- Should always be at end of other plugins

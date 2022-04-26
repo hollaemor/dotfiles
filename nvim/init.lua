@@ -28,3 +28,5 @@ require 'user.toggleterm'
 
 -- DB stuff
 require 'user.db-ui'
+
+require 'user.which_key'
