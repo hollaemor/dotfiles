@@ -82,7 +82,6 @@ return packer.startup(function(use)
 
   use "lukas-reineke/indent-blankline.nvim" -- show indent lines in code
   use 'norcalli/nvim-colorizer.lua' -- show colours inline for hex values
-  use 'lewis6991/gitsigns.nvim' -- show git lines in gutter
 
 
   -- completion plugins
@@ -114,8 +113,8 @@ return packer.startup(function(use)
   -- programming language specific
   use 'simrat39/rust-tools.nvim' --rust
   use { 'ray-x/go.nvim', run = ":GoUpdateBinaries" } -- Go
+  use 'mfussenegger/nvim-jdtls' -- java lsp
 
-  use 'rcarriga/nvim-notify' -- cool notification
 
 
   -- database related
@@ -125,12 +124,15 @@ return packer.startup(function(use)
 
   -- Git specific
   use 'tpope/vim-fugitive'
+  use 'sindrets/diffview.nvim'
+  use 'lewis6991/gitsigns.nvim' -- show git lines in gutter
 
   -- floating terminal
   use { "akinsho/toggleterm.nvim" }
 
-  use 'mfussenegger/nvim-jdtls' -- java lsp
+  -- utils
   use "folke/which-key.nvim"
+  use 'rcarriga/nvim-notify' -- cool notification
 
   -- Automatically setup config after cloning Packer repo
   -- Should always be at end of other plugins

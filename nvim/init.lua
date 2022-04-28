@@ -30,3 +30,4 @@ require 'user.toggleterm'
 require 'user.db-ui'
 
 require 'user.which_key'
+require 'user.diffview'
