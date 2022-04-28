@@ -53,6 +53,7 @@ return packer.startup(function(use)
   use 'sainnhe/everforest'
   use 'sainnhe/gruvbox-material'
   use 'folke/tokyonight.nvim'
+  use 'marko-cerovac/material.nvim'
 
   -- Dev Icons
   use 'kyazdani42/nvim-web-devicons'
