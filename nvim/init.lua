@@ -31,3 +31,4 @@ require("user.which_key")
 require("user.diffview")
 
 require("user.indentline")
+require("user.tests")
