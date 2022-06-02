@@ -20,22 +20,24 @@
 
     "modules-left": [
         "sway/workspaces",
-        "sway/mode",
-	"custom/spotify"
+        "sway/mode"
+	// "custom/spotify"
     ],
   //  "modules-center": [
   //      "sway/window"
   //  ],
     "modules-right": [
         "tray",
-	"pulseaudio",
+        "idle_inhibitor",
+        "custom/waybar-mpris",
+	      "pulseaudio",
         "network",
-	"custom/vpn",
-	"custom/pacman",
-	"custom/bt_mouse",
+	      "custom/vpn",
+	      "custom/pacman",
+	   //   "custom/bt_mouse",
         "memory",
         "battery",
-	"custom/weather",
+	      "custom/weather",
         "clock"
     ],
 
@@ -51,9 +53,9 @@
             "critical": 15
         },
         // Connected to AC
-        "format": "{icon}  {capacity}%", // Icon: bolt
+        "format": "{icon} {capacity}%", // Icon: bolt
         // Not connected to AC
-        "format-discharging": "{icon}  {capacity}%",
+        "format-discharging": "{icon}",
         "format-icons": [
             "", // Icon: battery-full
             "", // Icon: battery-three-quarters
@@ -86,7 +88,7 @@
     "interval": 5
   },
      "custom/pacman": {
-        "format": "{} ",
+        "format": " {}",
         "interval": 3600,                     // every hour
         "exec": "checkupdates | wc -l",       // # of updates
         "exec-if": "exit 0",                  // always run; consider advanced run conditions
@@ -96,7 +98,7 @@
     "memory": {
         "interval": 5,
         //"format": "  {}%", // Icon: memory
-	"format": "{}% ",
+	"format": " {}%",
         "states": {
             "warning": 70,
             "critical": 90
@@ -107,7 +109,7 @@
     "network": {
         "interval": 5,
         //"format-wifi": "  {essid} ({signalStrength}%)", // Icon: wifi
-        "format-wifi": " ", // Icon: wifi
+        "format-wifi": " {essid}", // Icon: wifi
         "format-ethernet": "  {ifname}: {ipaddr}/{cidr}", // Icon: ethernet
         "format-disconnected": "⚠ ",
         "tooltip-format": "{essid}: {ifname}: {ipaddr}",
@@ -144,7 +146,7 @@
 
     "pulseaudio": {
         //"scroll-step": 1,
-        "format": "{volume}% {icon} {format_source}",
+        "format": "{icon} {volume}%",
         "format-bluetooth": "{icon} {desc} {volume}%",
 	"format-source": "",
 	"format-source-muted": "",
@@ -186,14 +188,36 @@
       ],
       "tooltip": true
     },
+  "idle_inhibitor": {
+        "format": "{icon} ",
+        "format-icons":{
+            "activated": "",
+            "deactivated": ""
+        }
+    },
     "tray": {
-        "icon-size": 21,
+        "icon-size": 15,
         "spacing": 10
     },
     "custom/bt_mouse": {
 	    "format": "",
 	    "on-click": "~/.config/waybar/modules/bluetooth_devices.sh connect F4:19:03:1B:22:3E",
 	    "on-click-right": "~/.config/waybar/modules/bluetooth_devices.sh disconnect F4:19:03:1B:22:3E"
-    }
-
+    },
+ "custom/waybar-mpris": {
+        "format":"{}",
+        "max-length": 90,
+        "return-type": "json",
+        "exec": "waybar-mpris --position --autofocus --order SYMBOL:PLAYER:ARTIST:TITLE",
+        "on-click": "waybar-mpris --send toggle",
+            // This option will switch between players on right click.
+        "on-click-right": "waybar-mpris --send player-next",
+            // The options below will switch the selected player on scroll
+         "on-scroll-up": "waybar-mpris --send player-next",
+         "on-scroll-down": "waybar-mpris --send player-prev",
+            // The options below will go to next/previous track on scroll
+        //"on-scroll-up": "waybar-mpris --send next",
+        // "on-scroll-down": "waybar-mpris --send prev",
+        "escape": true,
+   },
 }

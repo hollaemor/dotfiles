@@ -1,14 +1,7 @@
-/* =============================================================================
- *
- * Waybar configuration
- *
- * Configuration reference: https://github.com/Alexays/Waybar/wiki/Configuration
- *
- * =========================================================================== */
-
-/* -----------------------------------------------------------------------------
- * Keyframes
- * -------------------------------------------------------------------------- */
+@define-color highlight #458588 ;
+@define-color fg #ebdbb2 ;
+@define-color base1 rgba(40 ,40 ,40 ,0.95 ) ;
+@define-color base2 #3c3836;
 
 @keyframes blink-warning {
     70% {
@@ -50,14 +43,14 @@
 
 /* The whole bar */
 #waybar {
-    /*background: #323232; */
-    /*background: rgba(43, 48, 59, 0.5);*/
+    /* background: #323232; */
+    /* background: rgba(43, 48, 59, 0.5); */
     color: white;
-    font-family:'FuraCode Nerd Font', Roboto, 'Font Awesome 5', Cantarell, Noto Sans, sans-serif;
+    /* font-family:'FuraCode Nerd Font', Roboto, 'Font Awesome 5', Cantarell, Noto Sans, sans-serif; */
+    font-family: 'OperatorMono Nerd Font';
     font-size: 1.3em;
- /*border-bottom: 3px solid rgba(100, 114, 125, 0.5);*/
-  border-bottom: 2px solid #458588;
-/*border-bottom: 1px solid alpha(@unfocused_borders, 0.85);*/
+  /* border-bottom: 2px solid #458588; */
+/* border-bottom: 1px solid alpha(@unfocused_borders, 0.85); */
 background: linear-gradient(to top, shade(alpha(@borders, 0.80), 1.15), shade(alpha(@borders, 0.9), 1.25));
 }
 
@@ -66,6 +59,7 @@ background: linear-gradient(to top, shade(alpha(@borders, 0.80), 1.15), shade(al
 #clock,
 #cpu,
 #custom-keyboard-layout,
+#idle_inhibitor,
 #memory,
 #mode,
 #network,
@@ -76,9 +70,11 @@ background: linear-gradient(to top, shade(alpha(@borders, 0.80), 1.15), shade(al
 #custom-weather,
 #custom-pacman,
 #custom-bt_mouse,
+#custom-waybar-mpris,
 #tray {
     padding-left: 10px;
     padding-right: 10px;
+    font-style: italic;
 }
 
 
@@ -148,7 +144,7 @@ background: linear-gradient(to top, shade(alpha(@borders, 0.80), 1.15), shade(al
 }
 
 #network {
-    /* No styles */
+  color: #8EC07C;  /* No styles */
 }
 
 #network.disconnected {
@@ -208,4 +204,14 @@ background: linear-gradient(to top, shade(alpha(@borders, 0.80), 1.15), shade(al
 	font-weight: bold;
 	color: #fe8019;
 }
-
+#custom-waybar-mpris {
+   /* color:#A89984;*/
+    color:#83A598;
+    padding:5px;
+}
+#idle_inhibitor {
+    color: #928374;
+}
+#idle_inhibitor.activated {
+    color: @highlight;
+}
