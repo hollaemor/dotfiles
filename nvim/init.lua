@@ -24,11 +24,11 @@ require("user.rust-tools")
 require("user.notify")
 require("user.toggleterm")
 
--- DB stuff
-require("user.db-ui")
-
 require("user.which_key")
 require("user.diffview")
 
 require("user.indentline")
 require("user.tests")
+
+require("user.dap")
+require("user.jabs")

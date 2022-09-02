@@ -29,7 +29,7 @@ font pango:RobotoMono Nerd Font 14
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg ~/Pictures/wallpapers/wallpaper_6.jpg fill
+output * background ~/Pictures/wallpapers/wallpaper_2.jpg fill 
 #
 # Example configuration:
 #
@@ -55,15 +55,17 @@ bindswitch --reload --locked lid:off output $laptop enable
 #
 exec swayidle -w \
           timeout 300 'swaylock' \
-          timeout 400 'systemctl suspend' \
-          timeout 600 'swaymsg "output * dpms off"' \
+          timeout 400 'swaymsg "output * dpms off"' \
                resume 'swaymsg "output * dpms on"' \
+          timeout 600 'systemctl suspend' \
           before-sleep 'swaylock'
 #
 # This will lock your screen after 300 seconds of inactivity, then turn off
-# your displays after another 300 seconds, and turn your screens back on when
+# your displays after another 100 seconds, and turn your screens back on when
 # resumed. It will also lock your screen before your computer goes to sleep.
 
+# hide cursor after a period of time
+seat * hide_cursor 10000
 ### Input configuration
 #
 # Example configuration:
@@ -281,6 +283,7 @@ swaybar_command waybar
 
 # Window Borders
 default_border pixel 2
+smart_borders on
 default_floating_border normal
 # hide_edge_borders both
 
@@ -318,8 +321,9 @@ exec mako
 # turn on bluetooth ctl
 exec bluetoothctl power on
 
+
 # turn on wlsunset - color temperature setter for Wayland
-# exec wlsunset -l 53.59 -L 9.93 -g 0.8
+ exec wlsunset -l 53.59 -L 9.99 -t 3800 -T 5800
 
 # exec_always for laptop clamshell mode
 exec_always ~/.config/sway/clam_shell_mode.sh

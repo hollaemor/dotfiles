@@ -38,3 +38,4 @@ keymap("n", "<leader>fh", ":Telescope help_tags<cr>", opts)
 -- Toggle Nvim tree
 keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts)
 
+

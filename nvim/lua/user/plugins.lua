@@ -104,7 +104,6 @@ return packer.startup(function(use)
 
 	-- test runners
 	use("vim-test/vim-test")
-	use({ "rcarriga/vim-ultest", run = ":UpdateRemotePlugins" })
 
 	use("hrsh7th/cmp-emoji") -- emogi supports
 	use("p00f/nvim-ts-rainbow") -- uses different colors for bracket pairs
@@ -114,11 +113,6 @@ return packer.startup(function(use)
 	use({ "ray-x/go.nvim", run = ":GoUpdateBinaries" }) -- Go
 	use("mfussenegger/nvim-jdtls") -- java lsp
 	use("ThePrimeagen/refactoring.nvim")
-
-	-- database related
-	use("tpope/vim-dadbod") -- for interacting with DB
-	use("kristijanhusak/vim-dadbod-ui") -- UI for previous plugin
-	use("kristijanhusak/vim-dadbod-completion") -- lsp completions for db
 
 	-- Git specific
 	use("tpope/vim-fugitive")
@@ -138,6 +132,11 @@ return packer.startup(function(use)
 			require("surround").setup({ mappings_style = "surround" })
 		end,
 	})
+
+	use("mfussenegger/nvim-dap")
+	use("rcarriga/nvim-dap-ui")
+
+	use("matbme/JABS.nvim")
 
 	-- Automatically setup config after cloning Packer repo
 	-- Should always be at end of other plugins

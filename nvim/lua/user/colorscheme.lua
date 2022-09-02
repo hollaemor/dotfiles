@@ -7,9 +7,8 @@ try
   let g:gruvbox_material_transparent_background = 0
   let g:gruvbox_material_sign_column_background='none'
 
-  " colorscheme gruvbox-material
   let g:material_style = "darker"
-  let g:sonokai_style = "espresso" " possible values: default, atlantis, espresso, andromeda, shusia, maia
+  let g:sonokai_style = "default" " possible values: default, atlantis, espresso, andromeda, shusia, maia
   colorscheme gruvbox-material
 
 catch /.*/

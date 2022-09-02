@@ -4,7 +4,7 @@ if not status_ok then
 	return
 end
 
-refactoring.setup({})
+refactoring.setup()
 
 -- Remaps for the refactoring operations currently offered by the plugin
 vim.api.nvim_set_keymap(

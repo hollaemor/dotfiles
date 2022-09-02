@@ -44,14 +44,13 @@
 /* The whole bar */
 #waybar {
     /* background: #323232; */
-    /* background: rgba(43, 48, 59, 0.5); */
+    background: rgba(43, 48, 59, 0.5);
     color: white;
-    /* font-family:'FuraCode Nerd Font', Roboto, 'Font Awesome 5', Cantarell, Noto Sans, sans-serif; */
-    font-family: 'OperatorMono Nerd Font';
+    font-family: 'JetBrains Mono';
     font-size: 1.3em;
-  /* border-bottom: 2px solid #458588; */
+  border-bottom: 1px solid #458588;
 /* border-bottom: 1px solid alpha(@unfocused_borders, 0.85); */
-background: linear-gradient(to top, shade(alpha(@borders, 0.80), 1.15), shade(alpha(@borders, 0.9), 1.25));
+/* background: linear-gradient(to top, shade(alpha(@borders, 0.80), 1.15), shade(alpha(@borders, 0.9), 1.25)); */
 }
 
 /* Each module */
@@ -74,7 +73,7 @@ background: linear-gradient(to top, shade(alpha(@borders, 0.80), 1.15), shade(al
 #tray {
     padding-left: 10px;
     padding-right: 10px;
-    font-style: italic;
+    /* font-style: italic; */
 }
 
 

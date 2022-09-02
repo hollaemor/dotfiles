@@ -12,9 +12,13 @@ null_ls.setup {
     formatting.prettier.with { extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" } },
     formatting.black.with { extra_args = { "--fast", "-S" } },
     formatting.isort,
-    -- formatting.yapf,
     formatting.stylua,
+    formatting.sql_formatter.with{ extra_args = {"-l", "postgresql"}},
+
+    -- diagnostics
     diagnostics.flake8.with{ extra_args = {"--ignore", "E501,W291,E126"}},
+    diagnostics.sqlfluff,
+
   },
 
   -- setup autoformatting on save
