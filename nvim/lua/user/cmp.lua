@@ -117,7 +117,6 @@ cmp.setup {
     { name = "buffer" },
     { name = "path" },
     { name = 'emoji'},
-    {name = 'vim-dadbod-completion'},
   },
   confirm_opts = {
     behavior = cmp.ConfirmBehavior.Replace,

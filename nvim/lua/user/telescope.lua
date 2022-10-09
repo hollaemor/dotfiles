@@ -5,6 +5,7 @@ end
 
 telescope.load_extension("media_files")
 telescope.load_extension("refactoring")
+telescope.load_extension("projects")
 
 telescope.setup({
 	defaults = {

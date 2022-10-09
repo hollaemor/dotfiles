@@ -7,4 +7,5 @@ jabs.setup({
 	position = "center",
 	height = 20,
 	width = 60,
+  border = "solid",
 })

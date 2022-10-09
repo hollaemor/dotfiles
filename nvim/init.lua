@@ -32,3 +32,8 @@ require("user.tests")
 
 require("user.dap")
 require("user.jabs")
+require("user.python")
+require("user.project")
+--[[ require("user.winbar") ]]
+
+--[[ vim.opt.winbar = "%{%v:lua.require'user.winbar'.get_winbar()%}" ]]

@@ -29,7 +29,7 @@ font pango:RobotoMono Nerd Font 14
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * background ~/Pictures/wallpapers/wallpaper_2.jpg fill 
+output * background ~/Pictures/wallpapers/wallpaper_4.jpg fill 
 #
 # Example configuration:
 #
@@ -321,6 +321,8 @@ exec mako
 # turn on bluetooth ctl
 exec bluetoothctl power on
 
+# enable autotiling
+exec autotiling
 
 # turn on wlsunset - color temperature setter for Wayland
  exec wlsunset -l 53.59 -L 9.99 -t 3800 -T 5800

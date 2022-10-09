@@ -6,4 +6,11 @@ if not status_ok then
   return
 end
 
-nvim_tree.setup()
+nvim_tree.setup({
+  sync_root_with_cwd = true,
+  respect_buf_cwd = true,
+  update_focused_file = {
+    enable = true,
+    update_root = true,
+  },
+})
