@@ -11,7 +11,16 @@ end
 
 neotest.setup({
   adapters = {
-    require("neotest-python"),
+    require("neotest-python")({
+      dap = { justMyCode = false },
+      runner = function()
+        vim.env.PYTHONPATH = '.'
+        return 'pytest'
+      end,
+      args = function()
+        return { '-q', '--color=yes' }
+      end
+    }),
     require("neotest-rust"),
     require("neotest-go"),
   },

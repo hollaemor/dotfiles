@@ -42,6 +42,7 @@ if not status then
   return
 end
 
+vim.env.PYTHONPATH = '.' -- needed in case pytest.ini isn't specified
 dap_python.setup("~/.virtualenvs/debugpy/bin/python")
 dap_python.test_runner = "pytest"
 
