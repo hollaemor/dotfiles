@@ -11,4 +11,4 @@ require 'user.lsp.null-ls'
 
 
 -- configure go LSP since gopls is installed on system
-lspconfig.gopls.setup{}
+--[[ lspconfig.gopls.setup{} ]]

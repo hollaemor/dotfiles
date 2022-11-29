@@ -1,7 +1,23 @@
+require("tokyonight").setup({
+  transparent = true,
+  style = "night",
+  styles = {
+    -- Style to be applied to different syntax groups
+    -- Value is any valid attr-list value for `:help nvim_set_hl`
+    comments = { italic = true },
+    keywords = { italic = true },
+    functions = {italic = true},
+    variables = {italic = false},
+    -- Background styles. Can be "dark", "transparent" or "normal"
+    sidebars = "transparent", -- style for sidebars, see below
+    floats = "dark", -- style for floating windows
+  },
+})
+
 vim.cmd([[
 try
 
-  let g:gruvbox_material_background = 'medium'
+  let g:gruvbox_material_background = 'hard'
   let g:gruvbox_material_enable_italic = 1
   let g:gruvbox_material_enable_bold = 1
   let g:gruvbox_material_transparent_background = 0

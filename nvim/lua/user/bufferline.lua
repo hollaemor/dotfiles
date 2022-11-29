@@ -8,6 +8,6 @@ bufferline.setup({
     --[[ indicator = { icon = "▎", style = "icon" }, ]]
     diagnostics = "nvim_lsp",
     offsets = { { filetype = "NvimTree", text = "Explorer", padding = 1, text_align = "center" } },
-    separator_style = "slant",
+    --[[ separator_style = "slant", ]]
   },
 })
