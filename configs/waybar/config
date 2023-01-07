@@ -1,45 +1,36 @@
-// =============================================================================
-//
-// Waybar configuration
-//
-// Configuration reference: https://github.com/Alexays/Waybar/wiki/Configuration
-//
-// =============================================================================
-
 {
-    // -------------------------------------------------------------------------
-    // Global configuration
-    // -------------------------------------------------------------------------
-
-    "layer": "top",
 
     "position": "top",
-
-    // If height property would be not present, it'd be calculated dynamically
-   // "height": 40,
+    "spacing": 5,
+    "height": 30, 
+    // "margin-top": 6,
+    // "margin-left": 10,
+    // "margin-bottom": 0,
+    // "margin-right": 10, 
 
     "modules-left": [
-        "sway/workspaces",
-        "sway/mode"
+        "wlr/workspaces",
+        "hyprland/mode",
+        "cpu",
+        "memory"
 	// "custom/spotify"
     ],
-  //  "modules-center": [
-  //      "sway/window"
-  //  ],
+    "modules-center": [
+        "custom/waybar-mpris"
+    ],
     "modules-right": [
         "tray",
+        "backlight",
         "idle_inhibitor",
-        "custom/waybar-mpris",
 	      "pulseaudio",
         "bluetooth",
         "network",
 	      "custom/vpn",
 	      "custom/pacman",
-	   //   "custom/bt_mouse",
-        "memory",
         "battery",
 	      "custom/weather",
-        "clock"
+        "clock",
+        "custom/power"
     ],
 
 
@@ -53,28 +44,28 @@
             "warning": 30,
             "critical": 15
         },
-        // Connected to AC
-        "format": "{icon} {capacity}%", // Icon: bolt
-        // Not connected to AC
+        "max-length": 20,
+        "format": "{icon} {capacity}%",
+        "format-warning": "{icon} {capacity}%",
+        "format-critical": "{icon} {capacity}%",
+        "format-charging": " {capacity}%",
         "format-discharging": "{icon}",
-        "format-icons": [
-            "", // Icon: battery-full
-            "", // Icon: battery-three-quarters
-            "", // Icon: battery-half
-            "", // Icon: battery-quarter
-            ""  // Icon: battery-empty
-        ],
+        "format-plugged": "  {capacity}%",
+        "format-alt": "{icon} {time}",
+        "format-full": "  {capacity}%",
+        "format-icons": [ "", "", "", "", "" ],
         "tooltip": true
     },
 
     "clock": {
         "interval": 1,
-        "format": " {:%H:%M}",
-	"tooltip-format": "<big>{:%a %e %b %Y}</big>"
+        "tooltip-format": "<big>{:%a %e %b %Y}</big>",
+       "format": "<span color='#bf616a'> </span>{:%a %b %d}",
+      "format-alt": "<span color='#bf616a'> </span>{:%I:%M %p}"
     },
     "cpu": {
         "interval": 5,
-        "format": "{}% ", // Icon: microchip
+        "format": " {}%",
 	"max-length": 10,
         "states": {
           "warning": 70,
@@ -99,31 +90,36 @@
     "interval": 5
   },
      "custom/pacman": {
-        "format": " {}",
-        "interval": 3600,                     // every hour
-        "exec": "checkupdates | wc -l",       // # of updates
-        "exec-if": "exit 0",                  // always run; consider advanced run conditions
+        "format": " {}",
+        "interval": 3600,
+        "exec": "checkupdates | wc -l",
+        "exec-if": "exit 0", 
         "on-click": "kitty --class app_updates -e yay -Syu; pkill -SIGRTMIN+8 waybar", // update system
         "signal": 8
     },
     "memory": {
-        "interval": 5,
-        //"format": "  {}%", // Icon: memory
-	"format": " {}%",
+	      "on-click": "kitty --class memory_usage -e btop",
+        "interval": 30,
+        "format": " {}%",
+        "max-length": 10,
         "states": {
             "warning": 70,
             "critical": 90
-        },
-	"on-click": "kitty --class memory_usage -e htop"
+        }
+    },
+  "backlight": {
+        "device": "eDP-1",
+        "format": "{icon} {percent}%",
+        "format-icons": ["", "", "", "", "", "", "", "", ""],
+        "on-click": "",
     },
 
     "network": {
         "interval": 5,
-        //"format-wifi": "  {essid} ({signalStrength}%)", // Icon: wifi
-        "format-wifi": " {essid}", // Icon: wifi
-        "format-ethernet": "  {ifname}: {ipaddr}/{cidr}", // Icon: ethernet
+        "format-wifi": "",
+        "format-ethernet": "  {ifname}: {ipaddr}/{cidr}",
         "format-disconnected": "⚠ ",
-        "tooltip-format": "{essid}: {ifname}: {ipaddr}",
+        "tooltip-format": "{essid}: {ifname}: {ipaddr} ({signalStrength})",
 	"on-click": "kitty --class network_config -e nmtui"
     },
 
@@ -137,21 +133,20 @@
         "max-length": 120
     },
 
-    "sway/workspaces": {
+    "wlr/workspaces": {
         "all-outputs": true,
         "disable-scroll": true,
+        "on-click": "activate",
         "format": " {icon} ",
         "format-icons": {
 	    "1": "",
-            "2": "", // Icon: mail
-            "3": "", // Icon: code
-            "4": "", // Icon: terminal
-            "5": "", // Icon: terminal
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": "",
 	    "9": ":",
             "10": "",
             "urgent": ""
-            //"focused": "",
-            //"default": "" 
         }
     },
 
@@ -186,19 +181,6 @@
 	"exec": "curl 'https://wttr.in/?format=1'",
 	"interval": 900
 	},
-    "temperature": {
-      "critical-threshold": 80,
-      "interval": 5,
-      "format": "{icon}  {temperatureC}°C",
-      "format-icons": [
-          "", // Icon: temperature-empty
-          "", // Icon: temperature-quarter
-          "", // Icon: temperature-half
-          "", // Icon: temperature-three-quarters
-          ""  // Icon: temperature-full
-      ],
-      "tooltip": true
-    },
   "idle_inhibitor": {
         "format": "{icon} ",
         "format-icons":{
@@ -215,18 +197,19 @@
 	    "on-click": "~/.config/waybar/modules/bluetooth_devices.sh connect F4:19:03:1B:22:3E",
 	    "on-click-right": "~/.config/waybar/modules/bluetooth_devices.sh disconnect F4:19:03:1B:22:3E"
     },
+    "custom/power": {
+      "format": "",
+      "on-click": "wlogout"
+    },
  "custom/waybar-mpris": {
         "format":"{}",
         "max-length": 90,
         "return-type": "json",
         "exec": "waybar-mpris --position --autofocus --order SYMBOL:PLAYER:ARTIST:TITLE",
         "on-click": "waybar-mpris --send toggle",
-            // This option will switch between players on right click.
         "on-click-right": "waybar-mpris --send player-next",
-            // The options below will switch the selected player on scroll
          "on-scroll-up": "waybar-mpris --send player-next",
          "on-scroll-down": "waybar-mpris --send player-prev",
-            // The options below will go to next/previous track on scroll
         //"on-scroll-up": "waybar-mpris --send next",
         // "on-scroll-down": "waybar-mpris --send prev",
         "escape": true,

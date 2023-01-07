@@ -163,6 +163,21 @@ return packer.startup(function(use)
 
   use("AckslD/swenv.nvim") -- python switch virtual envs
   use("ahmedkhalf/project.nvim")
+
+  use({ "glepnir/lspsaga.nvim" })
+  use({ "fgheng/winbar.nvim" })
+
+  use("Saecki/crates.nvim")
+
+  use({
+    "kevinhwang91/nvim-ufo",
+    requires = "kevinhwang91/promise-async",
+    config = function()
+      require("ufo").setup()
+      vim.keymap.set("n", "zR", require("ufo").openAllFolds)
+      vim.keymap.set("n", "zM", require("ufo").closeAllFolds)
+    end,
+  }) -- LSP based folding
   -- Automatically setup config after cloning Packer repo
   -- Should always be at end of other plugins
   if PACKER_BOOTSTRAP then
