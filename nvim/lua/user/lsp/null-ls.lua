@@ -22,7 +22,7 @@ null_ls.setup({
     formatting.terraform_fmt,
 
     -- diagnostics
-    diagnostics.flake8.with({ extra_args = { "--ignore", "E501,W291,E126" } }),
+    --[[ diagnostics.flake8.with({ extra_args = { "--ignore", "E501,W291,E126" } }), ]]
     diagnostics.sqlfluff,
   },
 
