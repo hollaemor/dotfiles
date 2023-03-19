@@ -38,21 +38,53 @@
   min-height: 0;
   margin: 0;
   padding: 0;
+  background: transparent;
 }
 
+window#waybar.hidden {
+  opacity: 0.7;
+}
 /* The whole bar */
-#waybar {
+window#waybar {
   /* background: #323232; */
-  background: rgba(43, 48, 59, 0.5);
-  color: white;
-  font-family: 'JetBrains Mono';
-  font-size: 1.3em;
-  border-bottom: 1px solid #458588;
+  /* background: rgba(43, 48, 59, 0.5); */
+
+  background: rgba(43, 48, 59, 0.3);
+  color: #7aa2f7;
+  /* font-family: 'JetBrains Mono'; */
+  font-family: 'FiraCode Nerd Font';
+  /* font-style: italic; */
+  font-size: 1.1em;
+  border-bottom: 1px solid #323232;
   transition-duration: 0.5s;
+  /* border-radius: 1em; */
   /* border-bottom: 1px solid alpha(@unfocused_borders, 0.85); */
   /* background: linear-gradient(to top, shade(alpha(@borders, 0.80), 1.15), shade(alpha(@borders, 0.9), 1.25)); */
 }
 
+tooltip {
+  background: rgba(43, 48, 59, 0.9);
+  border: 1px solid rgba(100, 114, 125, 0.5);
+  font-family: 'JetBrains Mono';
+}
+tooltip label {
+  color: white;
+}
+
+.modules-center {
+}
+
+/* .modules-left, */
+/* .modules-right { */
+/*   background: rgba(43, 48, 59, 0.5); */
+/* } */
+
+/* .modules-left { */
+/*   border-radius: 0 5px 5px 0; */
+/* } */
+/* .modules-right { */
+/*   border-radius: 5px 0 0 5px; */
+/* } */
 /* Each module */
 #battery,
 #clock,
@@ -70,11 +102,20 @@
 #custom-pacman,
 #custom-bt_mouse,
 #custom-waybar-mpris,
+#idle_inhibitor,
+#backlight,
 #tray {
-  padding-left: 10px;
-  padding-right: 10px;
-
+  padding: 4px 4px;
+  margin: 4px 4px;
+  /* border-radius: 4px; */
   /* font-style: italic; */
+}
+
+#workspaces {
+  border-radius: 4px;
+  margin: 1px 0px;
+  padding: 0px 0px;
+  color: #3a3b3c;
 }
 
 /* -----------------------------------------------------------------------------
@@ -101,8 +142,7 @@
 #battery.charging,
 #battery.full,
 #battery.plugged {
-  color: #26a65b;
-  /* background-color: #26a65b; */
+  color: #e0af68;
 }
 
 #battery.warning.discharging {
@@ -116,7 +156,8 @@
 }
 
 #cpu {
-  color: #fb958b;
+  /* color: #000000; */
+  /* background-color: #a9b1d6; */
 }
 
 #cpu.warning {
@@ -186,32 +227,29 @@
 }
 
 #window {
-  font-weight: bold;
+
 }
 
 #workspaces button {
-  border-bottom: 3px solid transparent;
-  /* To compensate for the top border and still have vertical centering */
-  /* padding-bottom: 2px; */
-  /* padding-left: 10px; */
-  /* padding-right: 10px; */
-  /* color: #888888; */
-  /* padding-top: 6px; */
-  padding: 0 5px;
-  background-color: transparent;
-  /* Use box-shadow instead of border so the text isn't offset */
-  box-shadow: inset 0 -3px transparent;
-  /* Avoid rounded borders under each workspace name */
-  border: none;
-  border-radius: 0;
-  color: #bf616a;
+  background-color: #d9e0ee;
+  color: #3a3b3c;
+  /* border: 2px solid #3a3b3c; */
+  margin: 5px 7px 5px 0px;
+  border-radius: 5px;
+  padding: 2px 2px;
 }
 
-#workspaces button.focused {
+#workspaces button.focused,
+#workspaces button.active {
   font-weight: bold;
   /* color: #ffe27a; */
-  color: #bf616a;
+  background-color: #bf616a;
   /* background-color: #458588; */
+  /* border-radius: 2px 2px; */
+
+  /* background-color: rgb(249, 226, 175); */
+  /* background-color: #7aa2f7; */
+  color: #3a3b3c;
 }
 
 #workspaces button.urgent {
@@ -240,7 +278,6 @@
   color: #8fbcbb;
 }
 
-
 #bluetooth {
   color: #707d9d;
 }
@@ -250,5 +287,10 @@
 }
 
 #custom-weather {
-  color: #458588;
+  color: #c0caf4;
+}
+
+#clock {
+  /* border-bottom: 2px solid #ebcb8b; */
+  color: #ebcb8b;
 }

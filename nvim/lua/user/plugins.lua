@@ -72,6 +72,8 @@ return packer.startup(function(use)
   -- LSP
   use("neovim/nvim-lspconfig") -- Collection of configurations for the built-in LSP client
   use("williamboman/nvim-lsp-installer") -- language server installer
+  use("williamboman/mason.nvim")
+  use("williamboman/mason-lspconfig.nvim")
 
   use("jose-elias-alvarez/null-ls.nvim") -- for formatters and linters
 

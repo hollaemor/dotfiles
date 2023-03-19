@@ -1,18 +1,18 @@
-require("tokyonight").setup({
-  transparent = true,
-  style = "night",
-  styles = {
-    -- Style to be applied to different syntax groups
-    -- Value is any valid attr-list value for `:help nvim_set_hl`
-    comments = { italic = true },
-    keywords = { italic = true },
-    functions = {italic = true},
-    variables = {italic = false},
-    -- Background styles. Can be "dark", "transparent" or "normal"
-    sidebars = "transparent", -- style for sidebars, see below
-    floats = "dark", -- style for floating windows
-  },
-})
+--[[ require("tokyonight").setup({ ]]
+--[[   transparent = true, ]]
+--[[   style = "night", ]]
+--[[   styles = { ]]
+--[[     -- Style to be applied to different syntax groups ]]
+--[[     -- Value is any valid attr-list value for `:help nvim_set_hl` ]]
+--[[     comments = { italic = true }, ]]
+--[[     keywords = { italic = true }, ]]
+--[[     functions = {italic = true}, ]]
+--[[     variables = {italic = false}, ]]
+--[[     -- Background styles. Can be "dark", "transparent" or "normal" ]]
+--[[     sidebars = "transparent", -- style for sidebars, see below ]]
+--[[     floats = "dark", -- style for floating windows ]]
+--[[   }, ]]
+--[[ }) ]]
 
 vim.cmd([[
 try
@@ -25,7 +25,7 @@ try
 
   let g:material_style = "darker"
   let g:sonokai_style = "default" " possible values: default, atlantis, espresso, andromeda, shusia, maia
-  colorscheme tokyonight
+  colorscheme gruvbox-material
 
 catch /.*/
   colorscheme default

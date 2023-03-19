@@ -29,7 +29,7 @@ font pango:RobotoMono Nerd Font 14
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * background ~/Pictures/wallpapers/wallpaper_4.jpg fill 
+output * background ~/Pictures/wallpapers/wallhaven-m39dk8.png fill 
 #
 # Example configuration:
 #
@@ -39,7 +39,9 @@ output * background ~/Pictures/wallpapers/wallpaper_4.jpg fill
  #output DP-2 resolution 2560x1440 position 3000,0
  #output DP-1 resolution 2560x1440 position 5560,0
 
+ # Samsung M7 Smart monitor
  output DP-2 scale 1
+ output DP-2 resolution 3840x2160 
 
 #
 # enable clamshell mode: when I use external monitors
@@ -95,7 +97,7 @@ seat * hide_cursor 10000
 # Basics:
 #
     # Start a terminal
-    bindsym $mod+Return exec $term
+    bindsym $mod+Return exec $term --single-instance
 
 
     # Kill focused window
@@ -283,7 +285,7 @@ swaybar_command waybar
 
 # Window Borders
 default_border pixel 2
-smart_borders on
+smart_borders off
 default_floating_border normal
 # hide_edge_borders both
 
@@ -310,6 +312,10 @@ bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
 bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle
 
+# Screenshots
+bindsym Print exec grim
+bindsym Shift+Print exec grim -g "$(slurp)"
+
 gaps inner 10
 gaps outer 5
 
@@ -325,7 +331,8 @@ exec bluetoothctl power on
 exec autotiling
 
 # turn on wlsunset - color temperature setter for Wayland
- exec wlsunset -l 53.59 -L 9.99 -t 3800 -T 5800
+exec wlsunset -l 53.59 -L 9.99 -t 3800 -T 5800
+
 
 # exec_always for laptop clamshell mode
 exec_always ~/.config/sway/clam_shell_mode.sh
@@ -369,14 +376,14 @@ set $gnome-schema org.gnome.desktop.interface
 #for_window [app_id=".*"] opacity $opacity
 
 exec_always {
-    gsettings set $gnome-schema gtk-theme 'Adwaita-dark'
-    gsettings set $gnome-schema icon-theme 'Adwaita'
+    gsettings set $gnome-schema gtk-theme 'Arc-Gruvbox'
+    gsettings set $gnome-schema icon-theme 'Papirus-Dark'
     gsettings set $gnome-schema cursor-theme 'Adwaita'
     gsettings set $gnome-schema font-name 'Cantarell Regular'
 }
 
 # Needed for pipewire WebRTC screen sharing
 exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
-
+exec systemctl import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP 
 include /etc/sway/config.d/*
 include ~/.config/sway/gruvbox.config

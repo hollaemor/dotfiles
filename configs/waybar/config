@@ -1,25 +1,27 @@
 {
 
     "position": "top",
-    "spacing": 5,
-    "height": 30, 
-    // "margin-top": 6,
+    "layer": "top",
+    // "spacing": 2,
+     "height": 20, 
+    // "margin-top": 5,
     // "margin-left": 10,
     // "margin-bottom": 0,
     // "margin-right": 10, 
 
     "modules-left": [
         "wlr/workspaces",
-        "hyprland/mode",
-        "cpu",
-        "memory"
+        "sway/workspaces"
+        // "hyprland/mode"
 	// "custom/spotify"
     ],
-    "modules-center": [
-        "custom/waybar-mpris"
-    ],
+    //"modules-center": [
+     //    "custom/waybar-mpris"
+   // ],
     "modules-right": [
         "tray",
+        "cpu",
+        "memory",
         "backlight",
         "idle_inhibitor",
 	      "pulseaudio",
@@ -29,8 +31,8 @@
 	      "custom/pacman",
         "battery",
 	      "custom/weather",
-        "clock",
-        "custom/power"
+        "clock"
+        // "custom/power"
     ],
 
 
@@ -60,13 +62,13 @@
     "clock": {
         "interval": 1,
         "tooltip-format": "<big>{:%a %e %b %Y}</big>",
-       "format": "<span color='#bf616a'> </span>{:%a %b %d}",
-      "format-alt": "<span color='#bf616a'> </span>{:%I:%M %p}"
+      "format": "<span> </span>{:%I:%M %p}"
     },
     "cpu": {
-        "interval": 5,
-        "format": " {}%",
-	"max-length": 10,
+        "interval": 1,
+        "format": "{icon0}{icon1}{icon2}{icon3}{icon4}{icon5}{icon6}{icon7}",
+        "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"],
+        // "max-length": 10,
         "states": {
           "warning": 70,
           "critical": 90
@@ -80,7 +82,8 @@
       "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
       "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
       "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
-      "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%"
+      "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%",
+      "on-click": "blueberry"
     },
   "custom/vpn": {
     "format": " ",
@@ -109,7 +112,7 @@
     },
   "backlight": {
         "device": "eDP-1",
-        "format": "{icon} {percent}%",
+        "format": "{icon}",
         "format-icons": ["", "", "", "", "", "", "", "", ""],
         "on-click": "",
     },
@@ -137,15 +140,18 @@
         "all-outputs": true,
         "disable-scroll": true,
         "on-click": "activate",
-        "format": " {icon} ",
+        "format": "{icon}",
         "format-icons": {
-	    "1": "",
-            "2": "",
-            "3": "",
-            "4": "",
-            "5": "",
-	    "9": ":",
-            "10": "",
+            "1": "1",
+            "2": "2",
+            "3": "3",
+            "4": "4",
+            "5": "5",
+            "6": "6",
+            "7": "7",
+            "8": "8",
+            "9": "9",
+            "10": "10",
             "urgent": ""
         }
     },
