@@ -1,18 +1,16 @@
 # vim:fileencoding=utf-8:foldmethod=marker
 
-# include dracula.conf
-include gruvbox.conf
-#include tokyonight_night.conf
 
 # font_family Fira Code Regular Nerd Font Complete
 # bold_font Fira Code Bold Nerd Font Complete
-font_family     FiraCode Nerd Font
-bold_font       auto
-italic_font     auto
-bold_italic_font auto
+font_family     JetBrains Mono Regular
+bold_font       JetBrains Mono Bold
+# italic_font     Caskaydia Cove Nerd Font Complete Italic
+# bold_italic_font Caskaydia Cove Nerd Font Complete Bold Italic
+italic_font     JetBrains Mono Italic
+bold_italic_font JetBrains Mono Bold Italic
 
-
-font_size 14.0
+font_size 15.0
 
 
  map ctrl+alt+z toggle_layout stack
@@ -632,6 +630,10 @@ hide_window_decorations yes
 # inactive_tab_foreground #444
 # inactive_tab_background #999
 # inactive_tab_font_style normal
+# active_tab_foreground   #fbf1c7
+# active_tab_background   #665c54
+# inactive_tab_foreground #a89984
+# inactive_tab_background #3c3836
 
 #: Tab bar colors and styles
 
@@ -649,7 +651,7 @@ hide_window_decorations yes
 
 #: The foreground and background colors
 
-background_opacity 0.98
+background_opacity 1
 
 #: The opacity of the background. A number between 0 and 1, where 1 is
 #: opaque and 0 is fully transparent.  This will only work if
@@ -867,8 +869,7 @@ background_opacity 0.98
 #: }}}
 
 #: OS specific tweaks {{{
-
-wayland_titlebar_color system
+# wayland_titlebar_color system
 
 #: Change the color of the kitty window's titlebar on Wayland systems
 #: with client side window decorations such as GNOME. A value of
@@ -1370,3 +1371,9 @@ wayland_titlebar_color system
 #: }}}
 
 #: }}}
+
+
+# BEGIN_KITTY_THEME
+# Ayu
+include current-theme.conf
+# END_KITTY_THEME

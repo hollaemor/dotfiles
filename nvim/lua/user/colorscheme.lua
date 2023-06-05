@@ -25,7 +25,7 @@ try
 
   let g:material_style = "darker"
   let g:sonokai_style = "default" " possible values: default, atlantis, espresso, andromeda, shusia, maia
-  colorscheme gruvbox-material
+  colorscheme catppuccin-mocha
 
 catch /.*/
   colorscheme default

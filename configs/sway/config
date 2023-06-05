@@ -29,7 +29,7 @@ font pango:RobotoMono Nerd Font 14
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * background ~/Pictures/wallpapers/wallhaven-m39dk8.png fill 
+output * background ~/Pictures/wallpapers/wallpaper_9.jpg fill 
 #
 # Example configuration:
 #
@@ -315,6 +315,7 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 # Screenshots
 bindsym Print exec grim
 bindsym Shift+Print exec grim -g "$(slurp)"
+
 
 gaps inner 10
 gaps outer 5

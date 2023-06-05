@@ -53,6 +53,9 @@ return packer.startup(function(use)
   use("sainnhe/gruvbox-material")
   use("folke/tokyonight.nvim")
   use("marko-cerovac/material.nvim")
+  use("Mofiqul/vscode.nvim")
+  use({ "catppuccin/nvim", as = "catppuccin" })
+  use("rebelot/kanagawa.nvim")
 
   -- Dev Icons
   use("kyazdani42/nvim-web-devicons")
@@ -70,10 +73,11 @@ return packer.startup(function(use)
   use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
 
   -- LSP
-  use("neovim/nvim-lspconfig") -- Collection of configurations for the built-in LSP client
+  use("neovim/nvim-lspconfig")          -- Collection of configurations for the built-in LSP client
   use("williamboman/nvim-lsp-installer") -- language server installer
   use("williamboman/mason.nvim")
   use("williamboman/mason-lspconfig.nvim")
+  use({ "zbirenbaum/copilot.lua" })     -- GitHub copilot
 
   use("jose-elias-alvarez/null-ls.nvim") -- for formatters and linters
 
@@ -84,36 +88,36 @@ return packer.startup(function(use)
   use("akinsho/bufferline.nvim")
 
   use("lukas-reineke/indent-blankline.nvim") -- show indent lines in code
-  use("norcalli/nvim-colorizer.lua") -- show colours inline for hex values
+  use("norcalli/nvim-colorizer.lua")        -- show colours inline for hex values
 
   -- completion plugins
-  use("hrsh7th/nvim-cmp") -- Autocompletion plugin
-  use("hrsh7th/cmp-nvim-lsp") -- LSP source for nvim-cmp
+  use("hrsh7th/nvim-cmp")        -- Autocompletion plugin
+  use("hrsh7th/cmp-nvim-lsp")    -- LSP source for nvim-cmp
   use("saadparwaiz1/cmp_luasnip") -- Snippets source for nvim-cmp
-  use("hrsh7th/cmp-buffer") -- buffer completions
-  use("hrsh7th/cmp-path") -- path completions
-  use("hrsh7th/cmp-cmdline") -- cmdline completions
+  use("hrsh7th/cmp-buffer")      -- buffer completions
+  use("hrsh7th/cmp-path")        -- path completions
+  use("hrsh7th/cmp-cmdline")     -- cmdline completions
   use("hrsh7th/cmp-nvim-lua")
 
   -- snippets
-  use("L3MON4D3/LuaSnip") --snippet engine
+  use("L3MON4D3/LuaSnip")            --snippet engine
   use("rafamadriz/friendly-snippets") -- a bunch of snippets to use
 
-  use("windwp/nvim-autopairs") -- automatically close brackets and braces
+  use("windwp/nvim-autopairs")       -- automatically close brackets and braces
 
-  use("numToStr/Comment.nvim") -- Easily comment stuff
+  use("numToStr/Comment.nvim")       -- Easily comment stuff
   use("JoosepAlviste/nvim-ts-context-commentstring")
 
   -- test runners
   use("vim-test/vim-test")
 
-  use("hrsh7th/cmp-emoji") -- emogi supports
+  use("hrsh7th/cmp-emoji")   -- emogi supports
   use("p00f/nvim-ts-rainbow") -- uses different colors for bracket pairs
 
   -- programming language related
-  use("simrat39/rust-tools.nvim") --rust
+  use("simrat39/rust-tools.nvim")                    --rust
   use({ "ray-x/go.nvim", run = ":GoUpdateBinaries" }) -- Go
-  use("mfussenegger/nvim-jdtls") -- java lsp
+  use("mfussenegger/nvim-jdtls")                     -- java lsp
   use("ThePrimeagen/refactoring.nvim")
 
   -- Git specific
@@ -168,8 +172,14 @@ return packer.startup(function(use)
 
   use({ "glepnir/lspsaga.nvim" })
   use({ "fgheng/winbar.nvim" })
+  use({ "stevearc/dressing.nvim" })
 
-  use("Saecki/crates.nvim")
+  use({
+    "Saecki/crates.nvim",
+    config = function()
+      require("crates").setup()
+    end,
+  })
 
   use({
     "kevinhwang91/nvim-ufo",
