@@ -3,7 +3,7 @@
     "position": "top",
     "layer": "top",
     // "spacing": 2,
-     "height": 20, 
+     "height": 34, 
     // "margin-top": 5,
     // "margin-left": 10,
     // "margin-bottom": 0,
@@ -11,8 +11,8 @@
 
     "modules-left": [
         "wlr/workspaces",
-        "sway/workspaces"
-        // "hyprland/mode"
+        "sway/workspaces",
+        "sway/mode"
 	// "custom/spotify"
     ],
     //"modules-center": [
@@ -136,7 +136,7 @@
         "max-length": 120
     },
 
-    "wlr/workspaces": {
+    "sway/workspaces": {
         "all-outputs": true,
         "disable-scroll": true,
         "on-click": "activate",
@@ -153,6 +153,13 @@
             "9": "9",
             "10": "10",
             "urgent": ""
+        },
+        "persistent_workspaces": {
+          "1": [],
+          "2": [],
+          "3": [],
+          "4": [],
+          "5": []
         }
     },
 

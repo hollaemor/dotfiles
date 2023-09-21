@@ -3,12 +3,12 @@
 
 # font_family Fira Code Regular Nerd Font Complete
 # bold_font Fira Code Bold Nerd Font Complete
-font_family     JetBrains Mono Regular
-bold_font       JetBrains Mono Bold
+font_family     JetBrainsMono NF Regular
+bold_font       JetBrainsMono NF Bold
 # italic_font     Caskaydia Cove Nerd Font Complete Italic
 # bold_italic_font Caskaydia Cove Nerd Font Complete Bold Italic
-italic_font     JetBrains Mono Italic
-bold_italic_font JetBrains Mono Bold Italic
+italic_font     JetBrainsMono NF Italic
+bold_italic_font JetBrainsMono NF Bold Italic
 
 font_size 15.0
 
@@ -651,7 +651,7 @@ hide_window_decorations yes
 
 #: The foreground and background colors
 
-background_opacity 1
+background_opacity 0.97
 
 #: The opacity of the background. A number between 0 and 1, where 1 is
 #: opaque and 0 is fully transparent.  This will only work if
@@ -1374,6 +1374,6 @@ background_opacity 1
 
 
 # BEGIN_KITTY_THEME
-# Ayu
+# Ubuntu
 include current-theme.conf
 # END_KITTY_THEME

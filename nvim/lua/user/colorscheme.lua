@@ -24,8 +24,8 @@ try
   let g:gruvbox_material_sign_column_background='none'
 
   let g:material_style = "darker"
-  let g:sonokai_style = "default" " possible values: default, atlantis, espresso, andromeda, shusia, maia
-  colorscheme catppuccin-mocha
+  let g:sonokai_style = "andromeda" " possible values: default, atlantis, espresso, andromeda, shusia, maia
+  colorscheme gruvbox-material
 
 catch /.*/
   colorscheme default

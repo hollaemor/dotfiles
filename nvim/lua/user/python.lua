@@ -1,3 +1,3 @@
 require('swenv').setup({
-venvs_path = vim.fn.expand('~/.virtualenvs'),
+venvs_path = vim.fn.expand('~/.pyenv/versions/'),
 })

@@ -40,8 +40,8 @@ output * background ~/Pictures/wallpapers/wallpaper_9.jpg fill
  #output DP-1 resolution 2560x1440 position 5560,0
 
  # Samsung M7 Smart monitor
- output DP-2 scale 1
- output DP-2 resolution 3840x2160 
+ output DP-1 scale 1
+ output DP-1 resolution 3840x2160 
 
 #
 # enable clamshell mode: when I use external monitors
@@ -318,7 +318,7 @@ bindsym Shift+Print exec grim -g "$(slurp)"
 
 
 gaps inner 10
-gaps outer 5
+gaps outer 3
 
 # startup apps
 exec mpd
