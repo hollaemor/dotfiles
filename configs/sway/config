@@ -36,9 +36,6 @@ output * background ~/Pictures/wallpapers/wallpaper_9.jpg fill
  output eDP-1 scale 1
  output eDP-1 resolution 3000x2000 position 0,0
  
- #output DP-2 resolution 2560x1440 position 3000,0
- #output DP-1 resolution 2560x1440 position 5560,0
-
  # Samsung M7 Smart monitor
  output DP-1 scale 1
  output DP-1 resolution 3840x2160 
@@ -183,6 +180,11 @@ set $workspace10 10
 # Assign Windows to workspaces
 assign [class="Spotify"] $workspace10
 assign [class="firefox"] $workspace1
+
+# Opacity
+bindsym $mod+o opacity plus 0.1
+bindsym $mod+Shift+o opacity minus 0.1
+
 #
 # inhibit idle for fullscreen windows
 for_window [class="^.*"] inhibit_idle fullscreen
@@ -233,7 +235,7 @@ mode "resize" {
     # up will shrink the containers height
     # down will grow the containers height
     bindsym $left resize shrink width 10px
-    bindsym $down resize grow height 10px
+    bindsym $down resize grow height 10pxuse
     bindsym $up resize shrink height 10px
     bindsym $right resize grow width 10px
 
@@ -249,6 +251,10 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
+
+# mouse gestures
+bindgesture swipe:3:right  workspace prev
+bindgesture swipe:3:left workspace next
 
 #
 # Status Bar:
@@ -355,18 +361,10 @@ mode $power_mode {
     bindsym Escape    mode "default"
 }
 
-set $application_mode " applications" 
-mode $application_mode {
-  bindsym f exec firefox; mode "default"
-  bindsym i exec _JAVA_AWT_WM_NONREPARENTING=1 ~/bin/idea; mode "default"
-  bindsym c exec code; mode "default"
-  bindsym g exec google-chrome-stable; mode "default"
-
-  bindsym Return mode "default"
-  bindsym Escape mode "default"
-}
-
-bindsym $mod+Shift+a mode $application_mode
+# applications
+bindsym Mod1+f exec firefox; mode "default"
+bindsym Mod1+c exec code; mode "default"
+bindsym Mod1+g exec google-chrome-stable; mode "default"
 
 
 # GTK3 theme
@@ -375,6 +373,7 @@ set $gnome-schema org.gnome.desktop.interface
 #set $opacity 0.9
 #for_window [class=".*"] opacity $opacity
 #for_window [app_id=".*"] opacity $opacity
+for_window [class="Slack"] floating enable
 
 exec_always {
     gsettings set $gnome-schema gtk-theme 'Arc-Gruvbox'
