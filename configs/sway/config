@@ -1,7 +1,3 @@
-# Default config for sway
-#
-# Copy this to ~/.config/sway/config and edit it to your liking.
-#
 # Read `man 5 sway` for a complete reference.
 
 ### Variables
@@ -28,8 +24,7 @@ set $menu wofi | xargs swaymsg exec --
 font pango:RobotoMono Nerd Font 14
 ### Output configuration
 #
-# Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * background ~/Pictures/wallpapers/wallpaper_9.jpg fill 
+output * background ~/Pictures/wallpapers/wallpaper_4.jpg fill 
 #
 # Example configuration:
 #
@@ -66,8 +61,6 @@ exec swayidle -w \
 # hide cursor after a period of time
 seat * hide_cursor 10000
 ### Input configuration
-#
-# Example configuration:
 #
    input "1739:52552:SYNA1D31:00_06CB:CD48_Touchpad" {
        dwt enabled
@@ -152,30 +145,30 @@ set $workspace1 1
 set $workspace2 2 
 set $workspace9 9
 set $workspace10 10
-    # Switch to workspace
-    bindsym $mod+1 workspace $workspace1
-    bindsym $mod+2 workspace $workspace2 
-    bindsym $mod+3 workspace 3
-    bindsym $mod+4 workspace 4
-    bindsym $mod+5 workspace 5
-    bindsym $mod+6 workspace 6
-    bindsym $mod+7 workspace 7
-    bindsym $mod+8 workspace 8
-    bindsym $mod+9 workspace $workspace9
-    bindsym $mod+0 workspace $workspace10
-    # Move focused container to workspace
-    bindsym $mod+Shift+1 move container to workspace $workspace1
-    bindsym $mod+Shift+2 move container to workspace $workspace2
-    bindsym $mod+Shift+3 move container to workspace 3
-    bindsym $mod+Shift+4 move container to workspace 4
-    bindsym $mod+Shift+5 move container to workspace 5
-    bindsym $mod+Shift+6 move container to workspace 6
-    bindsym $mod+Shift+7 move container to workspace 7
-    bindsym $mod+Shift+8 move container to workspace 8
-    bindsym $mod+Shift+9 move container to workspace $workspace9
-    bindsym $mod+Shift+0 move container to workspace $workspace10
-    # Note: workspaces can have any name you want, not just numbers.
-    # We just use 1-10 as the default.
+# Switch to workspace
+bindsym $mod+1 workspace $workspace1
+bindsym $mod+2 workspace $workspace2 
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
+bindsym $mod+5 workspace 5
+bindsym $mod+6 workspace 6
+bindsym $mod+7 workspace 7
+bindsym $mod+8 workspace 8
+bindsym $mod+9 workspace $workspace9
+bindsym $mod+0 workspace $workspace10
+# Move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace $workspace1
+bindsym $mod+Shift+2 move container to workspace $workspace2
+bindsym $mod+Shift+3 move container to workspace 3
+bindsym $mod+Shift+4 move container to workspace 4
+bindsym $mod+Shift+5 move container to workspace 5
+bindsym $mod+Shift+6 move container to workspace 6
+bindsym $mod+Shift+7 move container to workspace 7
+bindsym $mod+Shift+8 move container to workspace 8
+bindsym $mod+Shift+9 move container to workspace $workspace9
+bindsym $mod+Shift+0 move container to workspace $workspace10
+# Note: workspaces can have any name you want, not just numbers.
+# We just use 1-10 as the default.
 # 
 # Assign Windows to workspaces
 assign [class="Spotify"] $workspace10
@@ -229,28 +222,10 @@ for_window [app_id="^.*"] inhibit_idle fullscreen
 #
 # Resizing containers:
 #
-mode "resize" {
-    # left will shrink the containers width
-    # right will grow the containers width
-    # up will shrink the containers height
-    # down will grow the containers height
-    bindsym $left resize shrink width 10px
-    bindsym $down resize grow height 10pxuse
-    bindsym $up resize shrink height 10px
-    bindsym $right resize grow width 10px
-
-    # Ditto, with arrow keys
-    bindsym Left resize shrink width 10px
-    bindsym Down resize grow height 10px
-    bindsym Up resize shrink height 10px
-    bindsym Right resize grow width 10px
-
-    # Return to default mode
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
-bindsym $mod+r mode "resize"
-
+bindsym Mod1+Shift+Left resize shrink width 10px
+bindsym Mod1+Shift+Down resize grow height 10px
+bindsym Mod1+Shift+Up resize shrink height 10px
+bindsym Mod1+Shift+Right resize grow width 10px
 
 # mouse gestures
 bindgesture swipe:3:right  workspace prev
@@ -286,7 +261,6 @@ bar {
     }
 
 swaybar_command waybar
- #status_command i3status-rs
 }
 
 # Window Borders

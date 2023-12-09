@@ -230,6 +230,7 @@ local plugins = {
 				"xml",
 				"yaml",
 				"zig",
+        "proto"
 			},
 		},
 	},
