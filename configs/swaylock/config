@@ -1,0 +1,93 @@
+
+ignore-empty-password
+disable-caps-lock-text
+font=Calvin and Hobbes
+
+
+scaling=fill
+indicator
+clock
+timestr=%I:%M %p
+datestr=%A, %d %B
+
+#timestr=%R
+datestr=%a, %e of %B
+#indicator-x-position=2450
+#indicator-y-position=975
+#font-size=160
+
+
+# effects
+fade-in=1
+screenshots
+effect-blur=7x5
+effect-vignette=0.5:0.5
+#effect-pixelate=5
+
+
+
+# smaller indicator
+indicator-radius=200
+
+# bigger indicator
+# indicator-radius=300
+
+indicator-thickness=20
+indicator-caps-lock
+
+# Define all colors
+
+key-hl-color=00000066
+separator-color=00000000
+
+inside-color=00000033
+inside-clear-color=ffffff00
+inside-caps-lock-color=ffffff00
+inside-ver-color=ffffff00
+inside-wrong-color=ffffff00
+
+ring-color=ffffff
+ring-clear-color=ffffff
+ring-caps-lock-color=ffffff
+ring-ver-color=ffffff
+ring-wrong-color=ffffff
+
+line-color=00000000
+line-clear-color=ffffffFF
+line-caps-lock-color=ffffffFF
+line-ver-color=ffffffFF
+line-wrong-color=ffffffFF
+
+#text-color=ffffff
+text-color=d65d0e
+text-clear-color=ffffff
+text-ver-color=ffffff
+text-wrong-color=ffffff
+
+bs-hl-color=ffffff
+caps-lock-key-hl-color=ffffffFF
+caps-lock-bs-hl-color=ffffffFF
+disable-caps-lock-text
+text-caps-lock-color=ffffff
+
+
+# colors
+#text-ver-color=00000000
+#text-wrong-color=00000000
+#text-clear-color=00000000
+#inside-color=00000000
+#inside-ver-color=00000000
+#inside-clear-color=00000000
+#inside-caps-lock-color=00000000
+#ring-color=00000000
+#ring-ver-color=00000000
+#ring-wrong-color=00000000
+#ring-clear-color=00000000
+#line-color=00000000
+#line-clear-color=00000000
+#line-ver-color=00000000
+#key-hl-color=00000000
+#bs-hl-color=00000000
+#caps-lock-bs-hl-color=00000000
+#caps-lock-key-hl-color=00000000
+#separator-color=00000000
