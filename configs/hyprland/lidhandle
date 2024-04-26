@@ -1,0 +1,21 @@
+#!/bin/bash
+
+state=$1
+
+# if having issues with bluetooth, consider
+# restarting relevant services
+if [ "$state" == "on" ]; then
+  # when the laptop is open (lid off) we pass on as a param
+  systemctl --user restart wlsunset
+  # change-theme
+  # sync_tz_and_loc
+  hyprctl keyword monitor "eDP-1,preferreed,0x0,1"
+else
+  # when the lid closed (lid on), we pass off as script param
+  count_monitors=$(hyprctl monitors | grep -c '^Monitor')
+  hyprctl keyword monitor "eDP-1, disable"
+  # in order for this to work gotta have 'HandleLidSwitch=ignore' set in
+  # /etc/systemd/logind.conf. Double check this. 
+  # Ideally, the HandleLidSwitchDocked should take care of this
+  [ "$count_monitors" = 1 ] && systemctl suspend
+fi

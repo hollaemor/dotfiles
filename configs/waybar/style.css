@@ -39,6 +39,7 @@
   margin: 0;
   padding: 0;
   background: transparent;
+  color: #ebdbb2;
 }
 
 window#waybar.hidden {
@@ -49,19 +50,23 @@ window#waybar {
   /* background: #323232; */
   /* background: rgba(43, 48, 59, 0.5); */
 
-  background: rgba(43, 48, 59, 0.87);
+  background: rgba(40, 40, 40, 0.6);
   color: white;
-  font-family: 'Mononoki Nerd Font';
+  font-family: "Mononoki Nerd Font";
   /* font-style: italic; */
   font-size: 1.1em;
   border-bottom: 1px solid #323232;
   transition-duration: 0.5s;
+
+  border-bottom-style: inset;
+  border-bottom: 1px solid #689d6a;
+  /* background: #1d2021; */
 }
 
 tooltip {
   background: rgba(43, 48, 59, 0.9);
   border: 1px solid rgba(100, 114, 125, 0.5);
-  font-family: 'JetBrains Mono';
+  font-family: "JetBrains Mono";
 }
 tooltip label {
   color: white;
@@ -78,9 +83,8 @@ tooltip label {
 /* .modules-left { */
 /*   border-radius: 0 5px 5px 0; */
 /* } */
-/* .modules-right { */
-/*   border-radius: 5px 0 0 5px; */
-/* } */
+.modules-right {
+}
 /* Each module */
 #battery,
 #clock,
@@ -101,16 +105,17 @@ tooltip label {
 #idle_inhibitor,
 #backlight,
 #tray {
-  padding: 4px 4px;
-  margin: 4px 3px 4px 8px;
+  /* padding: 4px 4px; */
+  /* margin: 4px 3px 4px 8px; */
   /* border-radius: 4px; */
-  /* font-style: italic; */
+  padding: 0 5px;
+  margin: 0 10px; /* font-style: italic; */
 }
 
 #workspaces {
   border-radius: 4px;
-  margin: 1px 0px;
-  padding: 0px 0px;
+  /* margin: 1px 0px; */
+  /* padding: 0px 0px; */
   color: #3a3b3c;
 }
 
@@ -122,9 +127,6 @@ tooltip label {
   animation-timing-function: linear;
   animation-iteration-count: infinite;
   animation-direction: alternate;
-
-  color: #c0caf5;
-  /* background-color: #90b1b1; */
 }
 
 #battery.warning {
@@ -138,7 +140,7 @@ tooltip label {
 #battery.charging,
 #battery.full,
 #battery.plugged {
-  /* color: #e0af68; */
+  color: #e0af68;
 }
 
 #battery.warning.discharging {
@@ -151,17 +153,12 @@ tooltip label {
   animation-duration: 2s;
 }
 
-#cpu {
-  /* color: #000000; */
-  /* background-color: #a9b1d6; */
-}
-
 #cpu.warning {
-  color: orange;
+  color: #fe8019;
 }
 
 #cpu.critical {
-  color: red;
+  color: #fb4934;
 }
 
 #memory {
@@ -182,43 +179,33 @@ tooltip label {
 }
 
 #mode {
-  /*border-top: 2px solid white;*/
-  /* To compensate for the top border and still have vertical centering */
-  /*padding-bottom: 2px;*/
-  color: #fb4934;
+  color: #d3869b;
   font-weight: bold;
 }
 
 #network {
-  /* color: #b48ead; */
 }
 
 #network.disconnected {
-  color: #f53c3c;
+  color: #fb4934;
 }
 
 #pulseaudio {
   /* color: #7d9bba; */
 }
 
-#pulseaudio.muted {
-  /* No styles */
-}
-
 #custom-spotify {
   color: #b8bb26;
 }
 
-#temperature {
-  /* No styles */
-}
-
-#temperature.critical {
-  color: red;
-}
-
 #tray {
   /* No styles */
+}
+
+#tray menu {
+  background-color: #282828;
+  border-radius: 2px 2px;
+  color: #d5c4a1;
 }
 
 #window {
@@ -229,15 +216,26 @@ tooltip label {
   margin: 0 3px;
   color: white;
   border-bottom: 3px solid transparent;
+  /* animation: 3s ease-in-out 1s 2 reserve both paused slidein; */
+}
+
+#workspaces button label {
+  color: #689d6a;
+}
+
+#workspaces button.focused label {
+  color: #1d2021;
+  color: #fbf1c7;
+  /* background-color: #689d6a; */
 }
 
 #workspaces button.focused {
-  background: rgba(100, 114, 125, 0.2);
-  border-bottom: 3px solid @color15;
+  /* background: rgba(100, 114, 125, 0.2); */
+  /* border-bottom: 3px solid @color15; */
+  background-color: #689d6a;
 }
 
 #workspaces button.urgent {
-  color: black;
   background-color: #cc241d;
 }
 
@@ -252,9 +250,11 @@ tooltip label {
 }
 #idle_inhibitor {
   color: #928374;
+  padding: 0 10px;
 }
 #idle_inhibitor.activated {
-  color: @highlight;
+  background-color: #689d6a;
+  color: #fbf1c7;
 }
 
 #backlight {
@@ -275,6 +275,7 @@ tooltip label {
 }
 
 #clock {
-  /* border-bottom: 2px solid #ebcb8b; */
-  /* color: #ebcb8b; */
+  color: #fabd2f;
+  border-bottom: 1px solid #fabd2f;
+  font-weight: bold;
 }

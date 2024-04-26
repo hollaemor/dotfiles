@@ -1,93 +1,43 @@
-
 ignore-empty-password
-disable-caps-lock-text
-font=Calvin and Hobbes
-
-
-scaling=fill
+daemonize
+fade-in=0.5
 indicator
 clock
-timestr=%I:%M %p
-datestr=%A, %d %B
+datestr=%d.%m.%Y
 
-#timestr=%R
-datestr=%a, %e of %B
-#indicator-x-position=2450
-#indicator-y-position=975
-#font-size=160
-
-
-# effects
-fade-in=1
+#timestr=%I:%M %p
 screenshots
-effect-blur=7x5
-effect-vignette=0.5:0.5
-#effect-pixelate=5
-
-
-
-# smaller indicator
-indicator-radius=200
-
-# bigger indicator
-# indicator-radius=300
-
-indicator-thickness=20
+#show-keyboard-layout
 indicator-caps-lock
-
-# Define all colors
-
-key-hl-color=00000066
-separator-color=00000000
-
-inside-color=00000033
-inside-clear-color=ffffff00
-inside-caps-lock-color=ffffff00
-inside-ver-color=ffffff00
-inside-wrong-color=ffffff00
-
-ring-color=ffffff
-ring-clear-color=ffffff
-ring-caps-lock-color=ffffff
-ring-ver-color=ffffff
-ring-wrong-color=ffffff
-
+bs-hl-color=7daea3cc
+caps-lock-bs-hl-color=7daea3cc
+caps-lock-key-hl-color=cc241d
+font=JetBrains Mono
+font-size=35
+indicator-idle-visible
+indicator-radius=200
+indicator-thickness=20
+inside-color=32302f66
+inside-clear-color=89b48266
+inside-caps-lock-color=e78a4e66
+inside-ver-color=7daea366
+inside-wrong-color=ea696266
+#key-hl-color=a9b665cc
+key-hl-color=458588
+layout-bg-color=32302f00
+layout-text-color=d4be98
 line-color=00000000
-line-clear-color=ffffffFF
-line-caps-lock-color=ffffffFF
-line-ver-color=ffffffFF
-line-wrong-color=ffffffFF
-
-#text-color=ffffff
-text-color=d65d0e
-text-clear-color=ffffff
-text-ver-color=ffffff
-text-wrong-color=ffffff
-
-bs-hl-color=ffffff
-caps-lock-key-hl-color=ffffffFF
-caps-lock-bs-hl-color=ffffffFF
-disable-caps-lock-text
-text-caps-lock-color=ffffff
-
-
-# colors
-#text-ver-color=00000000
-#text-wrong-color=00000000
-#text-clear-color=00000000
-#inside-color=00000000
-#inside-ver-color=00000000
-#inside-clear-color=00000000
-#inside-caps-lock-color=00000000
-#ring-color=00000000
-#ring-ver-color=00000000
-#ring-wrong-color=00000000
-#ring-clear-color=00000000
-#line-color=00000000
-#line-clear-color=00000000
-#line-ver-color=00000000
-#key-hl-color=00000000
-#bs-hl-color=00000000
-#caps-lock-bs-hl-color=00000000
-#caps-lock-key-hl-color=00000000
-#separator-color=00000000
+ring-color=e78a4ecc
+ring-clear-color=89b482cc
+ring-caps-lock-color=e78a4ecc
+ring-ver-color=7daea3cc
+ring-wrong-color=ea6962cc
+separator-color=00000000
+text-color=d4be98
+text-clear-color=d4be98
+text-caps-lock-color=d4be98
+text-ver-color=d4be98
+text-wrong-color=d4be98
+effect-blur=10x5
+#effect-greyscale
+effect-vignette=0.5:0.5
