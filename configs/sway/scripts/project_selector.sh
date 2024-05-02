@@ -9,7 +9,8 @@
 # before launching Neovim, do a git stash, switch to master/main, do a pull if there's a remote folder, then do a stash pop
 #
 
-project_path="$HOME/Documents/code/github.com/hollaemor/playground/"
+#project_path="$HOME/Documents/code/github.com/hollaemor/playground/"
+project_path="$HOME/Documents/code/gitlab.com/cargoone/"
 
 
 function getProjects()
