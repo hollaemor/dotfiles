@@ -10,7 +10,7 @@
     // "margin-right": 10, 
 
     "modules-left": [
-         "wlr/workspaces",
+         // "wlr/workspaces",
 //        "hyprland/workspaces",
         "sway/workspaces",
         "sway/mode"
@@ -29,7 +29,7 @@
         "bluetooth",
         "network",
 	      "custom/vpn",
-	      "custom/pacman",
+	      // "custom/pacman",
         "battery",
 	      "custom/weather",
         "tray",
@@ -172,7 +172,7 @@
             "10": "10",
             "urgent": ""
         },
-        "persistent_workspaces": {
+        "persistent-workspaces": {
           "1": [],
           "2": [],
           "3": [],

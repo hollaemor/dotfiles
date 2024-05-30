@@ -9,31 +9,6 @@ local plugins = {
 		end,
 	},
 	{
-		"williamboman/mason.nvim",
-		opts = {
-			ensure_installed = {
-				"lua-language-server",
-				"html-lsp",
-				"prettier",
-				"stylua",
-				"gopls",
-				"ruff",
-				"mypy",
-				"debugpy",
-				"typescript-language-server",
-				"yaml-language-server",
-				"buf-languaage-server",
-				"dockerfile-language-server",
-				"graphql",
-				"helm-ls",
-				"jsonls",
-				"sqls",
-				"tsserver",
-				"graphql-language-service-cli",
-			},
-		},
-	},
-	{
 		"mfussenegger/nvim-dap",
 		config = function(_, opts)
 			require("core.utils").load_mappings("dap")
@@ -104,25 +79,6 @@ local plugins = {
 		end,
 	},
 	{
-		"hrsh7th/nvim-cmp",
-		dependencies = {
-			"hrsh7th/cmp-emoji",
-		},
-		opts = function()
-			local M = require("plugins.configs.cmp")
-			table.insert(M.sources, { name = "crates" })
-			table.insert(M.sources, { name = "emoji" })
-			return M
-		end,
-	},
-	{
-		-- LSP fidget
-
-		"j-hui/fidget.nvim",
-		tag = "legacy",
-		event = "LspAttach",
-	},
-	{
 		"neovim/nvim-lspconfig",
 
 		dependencies = {
@@ -137,10 +93,6 @@ local plugins = {
 		end,
 	},
 	-- testing frameworks
-	{
-		"vim-test/vim-test",
-		ft = { "rust", "python" },
-	},
 	{
 		"nvim-neotest/neotest",
 		keys = {
@@ -235,69 +187,11 @@ local plugins = {
 		},
 	},
 
-	-- utils -------------------------------
-	{
-		-- LSP based folding
-
-		"kevinhwang91/nvim-ufo",
-		lazy = false,
-		dependencies = "kevinhwang91/promise-async",
-		config = function()
-			require("ufo").setup()
-			vim.keymap.set("n", "zR", require("ufo").openAllFolds)
-			vim.keymap.set("n", "zM", require("ufo").closeAllFolds)
-		end,
-	},
-	{
-		-- surround
-		"ur4ltz/surround.nvim",
-		lazy = false,
-		config = function()
-			require("surround").setup({ mappings_style = "surround" })
-		end,
-	},
 	{
 		"folke/which-key.nvim",
 		keys = { "<leader>", "<c-r>", "c", "v", "g" },
 	},
 
-	-- Python venv switcher
-	{
-		"linux-cultist/venv-selector.nvim",
-		dependencies = { "neovim/nvim-lspconfig", "nvim-telescope/telescope.nvim", "mfussenegger/nvim-dap-python" },
-		config = function()
-			require("venv-selector").setup({
-				dap_enabled = true,
-			})
-		end,
-		-- event = "VeryLazy", -- Optional: needed only if you want to type `:VenvSelect` without a keymapping
-		keys = {
-			{
-				-- Keymap to open VenvSelector to pick a venv.
-				"<leader>vs",
-				"<cmd>:VenvSelect<cr>",
-				-- Keymap to retrieve the venv from a cache (the one previously used for the same project directory).
-				"<leader>vc",
-				"<cmd>:VenvSelectCached<cr>",
-			},
-		},
-	},
-
-	{
-		"kevinhwang91/nvim-bqf",
-		ft = "qt",
-		lazy = false,
-	},
-	{
-		"kdheepak/lazygit.nvim",
-		dependencies = "nvim-lua/plenary.nvim",
-		keys = {
-			{
-				"<leader>gg",
-				"<cmd>:LazyGit<cr>",
-			},
-		},
-	},
 	{
 		"ThePrimeagen/refactoring.nvim",
 		ft = { "python", "go", "java", "typescript" },
@@ -305,14 +199,6 @@ local plugins = {
 			require("telescope").load_extension("refactoring")
 			require("core.utils").load_mappings("refactoring")
 		end,
-	},
-	{
-		"utilyre/barbecue.nvim",
-		lazy = false,
-		dependencies = {
-			"SmiteshP/nvim-navic",
-			"nvim-tree/nvim-web-devicons",
-		},
 	},
 }
 
