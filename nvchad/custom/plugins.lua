@@ -40,82 +40,6 @@ local plugins = {
 		end,
 	},
 	{
-		"mfussenegger/nvim-dap-python",
-		ft = "python",
-		dependencies = {
-			"mfussenegger/nvim-dap",
-			"rcarriga/nvim-dap-ui",
-		},
-		config = function(_, opts)
-			local path = "~/.local/share/nvim/mason/packages/debugpy/venv/bin/python"
-			require("dap-python").setup(path)
-			require("core.utils").load_mappings("dap_python")
-		end,
-	},
-	{
-		"rcarriga/nvim-dap-ui",
-		dependencies = {
-			"mfussenegger/nvim-dap",
-		},
-		config = function()
-			local dap = require("dap")
-			local dapui = require("dapui")
-			dapui.setup()
-
-			dap.listeners.after.event_initialized["dapui_config"] = function()
-				dapui.open()
-			end
-			dap.listeners.before.event_terminated["dapui_config"] = function()
-				dapui.close()
-			end
-			dap.listeners.before.event_exited["dapui_config"] = function()
-				dapui.close()
-			end
-		end,
-	},
-	{
-		"simrat39/rust-tools.nvim",
-		ft = "rust",
-		dependencies = "neovim/nvim-lspconfig",
-		config = function()
-			local rt = require("rust-tools")
-			local navic = require("nvim-navic")
-			require("core.utils").load_mappings("lspconfig")
-
-			rt.setup({
-				server = {
-					on_attach = function(client, bufnr)
-						navic.attach(client, bufnr)
-						vim.keymap.set("n", "<C-space>", rt.hover_actions.hover_actions, { buffer = bufnr })
-						vim.keymap.set("n", "<leader>ca", rt.code_action_group.code_action_group, { buffer = bufnr })
-					end,
-				},
-			})
-		end,
-	},
-	{
-		"saecki/crates.nvim",
-		ft = { "rust", "toml" },
-
-		config = function(_, opts)
-			local crates = require("crates")
-			crates.setup(opts)
-			crates.show()
-		end,
-	},
-	{
-		"hrsh7th/nvim-cmp",
-		dependencies = {
-			"hrsh7th/cmp-emoji",
-		},
-		opts = function()
-			local M = require("plugins.configs.cmp")
-			table.insert(M.sources, { name = "crates" })
-			table.insert(M.sources, { name = "emoji" })
-			return M
-		end,
-	},
-	{
 		-- LSP fidget
 
 		"j-hui/fidget.nvim",
@@ -137,10 +61,6 @@ local plugins = {
 		end,
 	},
 	-- testing frameworks
-	{
-		"vim-test/vim-test",
-		ft = { "rust", "python" },
-	},
 	{
 		"nvim-neotest/neotest",
 		keys = {
@@ -197,107 +117,13 @@ local plugins = {
 		end,
 	},
 
-	{
-		"nvim-treesitter/nvim-treesitter",
-		dependencies = "JoosepAlviste/nvim-ts-context-commentstring",
-		opts = {
-			ensure_installed = {
-				"vim",
-				"lua",
-				"rust",
-				"python",
-				"go",
-				"html",
-				"css",
-				"javascript",
-				"typescript",
-				"vue",
-				"query",
-				"sql",
-				"bash",
-				"csv",
-				"gitignore",
-				"gomod",
-				"graphql",
-				"json",
-				"kotlin",
-				"markdown_inline",
-				"norg",
-				"promql",
-				"terraform",
-				"rst",
-				"toml",
-				"xml",
-				"yaml",
-				"zig",
-        "proto"
-			},
-		},
-	},
 
 	-- utils -------------------------------
-	{
-		-- LSP based folding
-
-		"kevinhwang91/nvim-ufo",
-		lazy = false,
-		dependencies = "kevinhwang91/promise-async",
-		config = function()
-			require("ufo").setup()
-			vim.keymap.set("n", "zR", require("ufo").openAllFolds)
-			vim.keymap.set("n", "zM", require("ufo").closeAllFolds)
-		end,
-	},
-	{
-		-- surround
-		"ur4ltz/surround.nvim",
-		lazy = false,
-		config = function()
-			require("surround").setup({ mappings_style = "surround" })
-		end,
-	},
 	{
 		"folke/which-key.nvim",
 		keys = { "<leader>", "<c-r>", "c", "v", "g" },
 	},
 
-	-- Python venv switcher
-	{
-		"linux-cultist/venv-selector.nvim",
-		dependencies = { "neovim/nvim-lspconfig", "nvim-telescope/telescope.nvim", "mfussenegger/nvim-dap-python" },
-		config = function()
-			require("venv-selector").setup({
-				dap_enabled = true,
-			})
-		end,
-		-- event = "VeryLazy", -- Optional: needed only if you want to type `:VenvSelect` without a keymapping
-		keys = {
-			{
-				-- Keymap to open VenvSelector to pick a venv.
-				"<leader>vs",
-				"<cmd>:VenvSelect<cr>",
-				-- Keymap to retrieve the venv from a cache (the one previously used for the same project directory).
-				"<leader>vc",
-				"<cmd>:VenvSelectCached<cr>",
-			},
-		},
-	},
-
-	{
-		"kevinhwang91/nvim-bqf",
-		ft = "qt",
-		lazy = false,
-	},
-	{
-		"kdheepak/lazygit.nvim",
-		dependencies = "nvim-lua/plenary.nvim",
-		keys = {
-			{
-				"<leader>gg",
-				"<cmd>:LazyGit<cr>",
-			},
-		},
-	},
 	{
 		"ThePrimeagen/refactoring.nvim",
 		ft = { "python", "go", "java", "typescript" },

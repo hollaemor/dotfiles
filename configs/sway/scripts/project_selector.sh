@@ -21,7 +21,7 @@ function getProjects()
     chosen=$(ls -A "$project_path$projects" | wofi -d -p "Select project:")
     if [ -n "$chosen" ]; then
       # check if window is already open
-      title="$chosen" # update to include programming info in title or window class
+      title="$chosen | python" # update to include programming info in title or window class
       window=$(swayr get-windows-as-json -m "[title=\"$title\"]")
       if [ "$window" != "[]" ]
      then
@@ -32,9 +32,7 @@ function getProjects()
         file=$(mktemp)
         printf "layout stack\n" >> "$file"
         echo "cd $project_path$projects/$chosen" >> "$file"
-        echo "launch --title '$chosen' nvim ." >> "$file"
-        # printf "\n" >> "$file"
-        # printf "\nlaunch nvim\n" >> "$file"
+        echo "launch --title '$chosen' --type=os-window --os-window-class python nvim" >> "$file"
 
         kitty --session "$file"
       fi
