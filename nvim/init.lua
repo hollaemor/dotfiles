@@ -1,45 +1,39 @@
-if vim.g.vscode then
-  require("user.vscode")
-else
-  require("user.options")
-  require("user.keymaps")
-  require("user.plugins")
-  require("user.colorscheme")
-  require("user.treesitter")
-  require("user.nvim-tree")
-  --[[ require("user.lualine") ]]
-  require("user.lualine_new")
-  require("user.bufferline")
+vim.g.base46_cache = vim.fn.stdpath "data" .. "/nvchad/base46/"
+vim.g.mapleader = " "
 
-  require("user.telescope")
+-- bootstrap lazy and all plugins
+local lazypath = vim.fn.stdpath "data" .. "/lazy/lazy.nvim"
 
-  -- LSP
-  require("user.lsp")
-
-  require("user.git_signs")
-  require("user.autopairs")
-  require("user.cmp")
-  require("user.comment")
-
-  --progamming languages
-  require("user.go")
-  require("user.rust-tools")
-
-  require("user.notify")
-  require("user.toggleterm")
-
-  require("user.which_key")
-  require("user.diffview")
-
-  require("user.indentline")
-  require("user.tests")
-
-  require("user.dap")
-  require("user.jabs")
-  require("user.python")
-  require("user.project")
-
-  require("user.colorizer")
-  --[[ require("user.winbar") ]]
-  --[[ vim.opt.winbar = "%{%v:lua.require'user.winbar'.get_winbar()%}" ]]
+if not vim.loop.fs_stat(lazypath) then
+  local repo = "https://github.com/folke/lazy.nvim.git"
+  vim.fn.system { "git", "clone", "--filter=blob:none", repo, "--branch=stable", lazypath }
 end
+
+vim.opt.rtp:prepend(lazypath)
+
+local lazy_config = require "configs.lazy"
+
+-- load plugins
+require("lazy").setup({
+  {
+    "NvChad/NvChad",
+    lazy = false,
+    branch = "v2.5",
+    import = "nvchad.plugins",
+    config = function()
+      require "options"
+    end,
+  },
+
+  { import = "plugins" },
+}, lazy_config)
+
+-- load theme
+dofile(vim.g.base46_cache .. "defaults")
+dofile(vim.g.base46_cache .. "statusline")
+
+require "nvchad.autocmds"
+
+vim.schedule(function()
+  require "mappings"
+end)
