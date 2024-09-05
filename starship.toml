@@ -139,8 +139,8 @@ time_format = "%R"
 disabled = false
 format='[$symbol]($style)'
 contexts = [
-  { context_pattern = "gke_cargo-one_europe-west3-b_staging", symbol = "🪓 " },
-  { context_pattern = "gke_cargo-one_europe-west3-b_production", symbol = "💣💥 " }
+  { context_pattern = "gke_cargo-one_europe-west3-b_staging", symbol = "☸ ",  style="fg:color_aqua"},
+  { context_pattern = "gke_cargo-one_europe-west3-b_production", symbol = "☸💣💥 ", style="fg:color_orange" }
 ]
 
 
@@ -148,6 +148,7 @@ contexts = [
 disabled = false
 
 [gcloud]
+disabled = true
 symbol = '️🇬️ '
 format = '[$symbol]($style)'
 
