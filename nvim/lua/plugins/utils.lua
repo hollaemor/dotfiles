@@ -36,7 +36,6 @@ return {
       },
     },
   },
-
   {
     "hrsh7th/nvim-cmp",
     dependencies = {
@@ -46,6 +45,7 @@ return {
       local M = require "nvchad.configs.cmp"
       table.insert(M.sources, { name = "crates" })
       table.insert(M.sources, { name = "emoji" })
+      -- table.insert(M.sources, { name = "copilot" })
       return M
     end,
   },
@@ -108,14 +108,69 @@ return {
       },
     },
   },
-
   {
     "folke/todo-comments.nvim",
     dependencies = { "nvim-lua/plenary.nvim" },
+    opts = {
+      signs = true,
+      -- your configuration comes here
+      -- or leave it empty to use the default settings
+      -- refer to the configuration section below
+    },
+  },
+
+  -- dims inactive portions of code being edited
+  {
+    "folke/twilight.nvim",
     opts = {
       -- your configuration comes here
       -- or leave it empty to use the default settings
       -- refer to the configuration section below
     },
+  },
+  {
+    {
+      "CopilotC-Nvim/CopilotChat.nvim",
+      event = "VeryLazy",
+      branch = "canary",
+      dependencies = {
+        { "zbirenbaum/copilot.lua" }, -- or github/copilot.vim
+        { "nvim-lua/plenary.nvim" }, -- for curl, log wrapper
+      },
+      build = "make tiktoken", -- Only on MacOS or Linux
+      opts = {
+        debug = true, -- Enable debugging
+        -- See Configuration section for rest
+      },
+      -- See Commands section for default commands if you want to lazy load on them
+    },
+  },
+
+  {
+    "zbirenbaum/copilot-cmp",
+    config = function()
+      require("copilot_cmp").setup()
+    end,
+  },
+  {
+    "zbirenbaum/copilot.lua",
+    cmd = "Copilot",
+    event = "InsertEnter",
+    config = function()
+      require("copilot").setup {}
+    end,
+  },
+  {
+    "stevearc/aerial.nvim",
+    event = "VeryLazy",
+    opts = {},
+    -- Optional dependencies
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+      "nvim-tree/nvim-web-devicons",
+    },
+    config = function()
+      require("aerial").setup()
+    end,
   },
 }
