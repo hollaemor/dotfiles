@@ -1,0 +1,7 @@
+[user]
+	name = Emmanuel Oriarewo
+
+[includeIf "gitdir:~/Documents/code/gitlab.com/"]
+  path = ~/.gitconfig-work
+[includeIf "gitdir:~/Documents/code/github.com/"]
+  path = ~/.gitconfig-personal
