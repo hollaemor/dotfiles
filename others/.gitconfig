@@ -5,3 +5,5 @@
   path = ~/.gitconfig-work
 [includeIf "gitdir:~/Documents/code/github.com/"]
   path = ~/.gitconfig-personal
+[pull]
+	rebase = true
