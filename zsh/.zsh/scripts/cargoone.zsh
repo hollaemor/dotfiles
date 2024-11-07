@@ -17,10 +17,13 @@ eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /usr/share/zsh/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh
-source /usr/share/doc/pkgfile/command-not-found.zsh
+if [ -f "/usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh" ]; then . "/usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh"; fi
+if [ -f "/usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ]; then . "/usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"; fi
+if [ -f "/usr/share/zsh/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh" ]; then . "//usr/share/zsh/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh"; fi
+if [ -f "/usr/share/doc/pkgfile/command-not-found.zsh" ]; then . "/usr/share/doc/pkgfile/command-not-found.zsh"; fi
+
+if [ -f "/usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ]; then . "/usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"; fi
+if [ -f "/usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh" ]; then . "/usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh"; fi
 
 
 # c1 useful aliases
@@ -33,4 +36,4 @@ alias dprod="pgcli -U emmanuel.oriarewo -h localhost -p 5999 -d user-service"
 alias c1="$HOME/.pyenv/versions/3.11.3/envs/cli/bin/c1"
 
 # NVM - Node Version Manager
-source /usr/share/nvm/init-nvm.sh
+if [ -f "/usr/share/nvm/init-nvm.sh" ]; then . "/usr/share/nvm/init-nvm.sh"; fi
