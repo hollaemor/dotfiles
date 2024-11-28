@@ -13,12 +13,6 @@ autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/home/emmanuel/Documents/tools/google-cloud-sdk/path.zsh.inc' ]; then . '/home/emmanuel/Documents/tools/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/home/emmanuel/Documents/tools/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/emmanuel/Documents/tools/google-cloud-sdk/completion.zsh.inc'; fi
-
 
 if [ -f "$HOME/.zsh/scripts/cargoone.zsh" ]; then . "$HOME/.zsh/scripts/cargoone.zsh"; fi
 if [ -f "$HOME/.zsh/scripts/other.zsh" ]; then . "$HOME/.zsh/scripts/other.zsh"; fi
@@ -32,4 +26,9 @@ eval "$(starship init zsh)"
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/home/emmanuel/Documents/tools/google-cloud-sdk/path.zsh.inc' ]; then . '/home/emmanuel/Documents/tools/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/home/emmanuel/Documents/tools/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/emmanuel/Documents/tools/google-cloud-sdk/completion.zsh.inc'; fi
