@@ -3,7 +3,7 @@ export POSTGRES_PORT="5444"
 export POSTGRES_PASSWORD="cargoone"
 export PSQL_EDITOR="nvim"
 export PATH="$HOME/Documents/code/gitlab.com/cargoone/tools/k8s-utils:$PATH"
-
+export GOOGLE_APPLICATION_CREDENTIALS="$HOME/.config/gcloud/application_default_credentials.json"
 
 # locally built rambler
 alias rambler="$HOME/Documents/code/github.com/rambler/rambler"

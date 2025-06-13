@@ -1,5 +1,5 @@
 alias v="nvim"
-alias ls="exa --icons"
+alias ls="eza --icons"
 alias mine="cd ~/Documents/code/github.com/hollaemor/"
 alias cone="cd ~/Documents/code/gitlab.com/cargoone/"
 

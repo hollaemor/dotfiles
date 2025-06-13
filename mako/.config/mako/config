@@ -7,10 +7,10 @@ sort=-time
 on-button-right=dismiss-all
 
 # Style options
-include "$HOME/.cache/wal/colors-mako"
+# include "$HOME/.cache/wal/colors-mako"
 font=FiraCode Nerd Font 14
-; background-color=#252423de
-; text-color=#d4be98
+background-color=#252423de
+text-color=#d4be98
 width=400
 height=150
 margin=10
