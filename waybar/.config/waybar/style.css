@@ -23,8 +23,7 @@
 }
 
 * {
-  font-size: 17px;
-  border-radius: 5px;
+  font-size: 15px;
 }
 
 
@@ -32,10 +31,9 @@
 
 window#waybar {
 
-  /* `otf-font-awesome` is required to be installed for icons */
-  font-family: FontAwesome, monospace;
-  background-color: transparent;
-  border-bottom: 0px;
+  font-family: "JetBrainsMono Nerd Font";
+  background: rgba(43, 48, 59, 0.8);
+  border-bottom: 1px solid black;
   color: #ebdbb2;
   transition-property: background-color;
   transition-duration: .5s;
@@ -50,7 +48,7 @@ window#waybar.empty #window {
 }
 
 tooltip {
-  background: rgba(43, 48, 59, 0.9);
+  background: rgba(43, 48, 59, 0.8);
   border: 1px solid rgba(100, 114, 125, 0.5);
   font-family: "JetBrainsMono Nerd Font";
 }
@@ -60,21 +58,15 @@ tooltip label {
 }
 
 .modules-center {
-  margin: 10px 0 0 0;
+  /* margin: 10px 0 0 0; */
 }
 
 .modules-right {
-  margin: 10px 10px 0 0;
+  /* margin: 10px 10px 0 0; */
 }
 
 .modules-left {
-  margin: 10px 0 0 10px;
-}
-
-button {
-  /* Use box-shadow instead of border so the text isn't offset */
-  /* box-shadow: inset 0 -3px transparent; */
-  border: none;
+  /* margin: 10px 0 0 10px; */
 }
 
 /* Each module */
@@ -94,25 +86,13 @@ button {
 #tray,
 #mpris,
 #load {
-  padding: 0 10px;
-  background-color: #282828;
   color: #ebdbb2;
+  padding: 0 5px;
 }
 
 #workspaces {
-  /*border-radius: 4px;*/
-  /* margin: 1px 0px; */
-  /* padding: 0px 0px; */
-  /*color: #3a3b3c;*/
-  background-color: #282828;
 }
 
-#workspaces button {
-  padding: 0 5px;
-  background-color: transparent;
-  color: #ebdbb2;
-  border-radius: 0;
-}
 
 
 #mode {
@@ -121,26 +101,15 @@ button {
   /* box-shadow: inset 0 -3px #ffffff; */
 }
 
-/* If workspaces is the leftmost module, omit left margin */
-.modules-left>widget:first-child>#workspaces {
-  margin-left: 0;
-}
-
-/* If workspaces is the rightmost module, omit right margin */
-.modules-right>widget:last-child>#workspaces {
-  margin-right: 0;
-}
 
 #cava {
-  padding: 0 5px;
+  /* padding: 0 5px; */
 }
 
-#workspaces button:first-child {
-  border-radius: 5px 0 0 5px;
-}
-
-#workspaces button:last-child {
-  border-radius: 0 5px 5px 0;
+#workspaces button {
+  color: #ebdbb2;
+  border-radius: 0;
+  font-weight: bold;
 }
 
 #workspaces button:hover {
@@ -148,7 +117,8 @@ button {
 }
 
 #workspaces button.focused {
-  background-color: #665c54;
+  /* background-color: #665c54; */
+  background-color: #d79921;
   /* box-shadow: inset 0 -3px #ffffff; */
 }
 
@@ -191,8 +161,7 @@ button {
 }
 
 #mpris.playing {
-  background-color: #d79921;
-  color: #282828;
+  color: #d79921;
 }
 
 label:focus {
@@ -254,7 +223,7 @@ label:focus {
 
 #workspaces button.focused label {
   color: #1d2021;
-  color: #fbf1c7;
+  /* color: #fbf1c7; */
   /* background-color: #689d6a; */
 }
 
