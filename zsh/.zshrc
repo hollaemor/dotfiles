@@ -17,6 +17,7 @@ compinit
 if [ -f "$HOME/.zsh/scripts/cargoone.zsh" ]; then . "$HOME/.zsh/scripts/cargoone.zsh"; fi
 if [ -f "$HOME/.zsh/scripts/other.zsh" ]; then . "$HOME/.zsh/scripts/other.zsh"; fi
 if [ -f "$HOME/.zsh/scripts/aliases.zsh" ]; then . "$HOME/.zsh/scripts/aliases.zsh"; fi
+if [ -f "$HOME/.zsh/scripts/secrets.zsh" ]; then . "$HOME/.zsh/scripts/secrets.zsh"; fi
 
 export PATH="$HOME/.cargo/bin:$PATH"
 export EDITOR="nvim"
