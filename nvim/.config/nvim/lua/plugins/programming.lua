@@ -79,7 +79,7 @@ return {
       if vim.fn.has("win32") == 1 then
         return "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false"
       else
-        return "make"
+        return "make BUILD_FROM_SOURCE=true"
       end
     end,
     event = "VeryLazy",
