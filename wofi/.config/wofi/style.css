@@ -2,16 +2,17 @@ window {
   border-radius: 5px;
   font-family: JetBrainsMono Nerd Font;
   font-size: 1.3em;
-  opacity: 0.9;
+  opacity: 0.8;
 
   margin: 0px;
-  border: 1px solid #928374;
+  border: 1px solid #fbf1c7;
   background-color: #282828;
 }
 
 #input {
   margin: 5px;
-  border: none;
+  /* border: none; */
+  border: 1px solid #fbf1c7;
   color: #ebdbb2;
   background-color: #1d2021;
 }
@@ -46,5 +47,11 @@ window {
 #entry:selected {
   font-weight: bold;
 
-  background-color: #1d2021;
+  background-color: #fbf1c7;
+  color: #1d2021;
+}
+
+#entry:selected #text {
+  color: #1d2021;
+
 }
