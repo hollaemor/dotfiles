@@ -1,0 +1,1 @@
+/home/emor/.config/omarchy/current/theme/neovim.lua
