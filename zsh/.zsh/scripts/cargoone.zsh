@@ -33,7 +33,7 @@ alias pprod="proxy_db production 5999"
 alias dstaging="pgcli -U emmanuel.oriarewo -h localhost -p 5433 -d user-service"
 alias dprod="pgcli -U emmanuel.oriarewo -h localhost -p 5999 -d user-service"
 
-alias c1="$HOME/.pyenv/versions/3.11.3/envs/cli/bin/c1"
+alias c1="$HOME/.pyenv/versions/3.12.8/envs/cli/bin/c1"
 
 # NVM - Node Version Manager
 if [ -f "/usr/share/nvm/init-nvm.sh" ]; then . "/usr/share/nvm/init-nvm.sh"; fi
