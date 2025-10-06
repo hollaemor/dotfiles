@@ -1,1 +1,1 @@
-/home/emor/.config/omarchy/current/theme/neovim.lua
+/home/emmanuel/.config/omarchy/current/theme/neovim.lua

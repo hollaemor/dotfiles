@@ -30,11 +30,11 @@ source <(fzf --zsh)
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
+# awrit
+export PATH="/home/emmanuel/.local/bin:$PATH"
+
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/home/emmanuel/Documents/tools/google-cloud-sdk/path.zsh.inc' ]; then . '/home/emmanuel/Documents/tools/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/home/emmanuel/Documents/tools/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/emmanuel/Documents/tools/google-cloud-sdk/completion.zsh.inc'; fi
-
-# awrit
-export PATH="/home/emmanuel/.local/bin:$PATH"
