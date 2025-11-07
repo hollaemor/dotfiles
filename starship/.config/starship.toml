@@ -35,22 +35,7 @@ $cmd_duration\
 $character
 """
 
-palette = 'gruvbox_dark'
-
-[palettes.gruvbox_dark]
-color_fg0 = '#fbf1c7'
-color_bg1 = '#3c3836'
-color_bg3 = '#665c54'
-color_blue = '#458588'
-color_aqua = '#689d6a'
-color_green = '#98971a'
-color_orange = '#d65d0e'
-color_purple = '#b16286'
-color_red = '#cc241d'
-color_yellow = '#d79921'
-
 [directory]
-style = "fg:color_fg0"
 format = "[ $path ]($style)"
 home_symbol = "󰟐 "
 
@@ -67,80 +52,46 @@ home_symbol = "󰟐 "
 
 [git_branch]
 # symbol = ""
-style = "fg:color_yellow"
 # format = '[[ $symbol $branch ](fg:color_fg0)]($style)'
 format = '[$symbol$branch(:$remote_branch)]($style) '
 
-[git_status]
-style = "fg:color_orange"
+# [git_status]
 # format = '[[($all_status$ahead_behind )](fg:color_fg0 bg:color_aqua)]($style)'
 
 [nodejs]
 symbol = ""
-style = "bg:color_blue"
-format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_blue)]($style)'
+# format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_blue)]($style)'
+# format = '[[ $symbol( $version) ]]'
 
 [c]
 symbol = " "
-style = "bg:color_blue"
-format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_blue)]($style)'
 
 [rust]
 symbol = ""
-style = "bg:color_blue"
-format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_blue)]($style)'
 
 [golang]
 symbol = " "
-# style = "bg:color_blue"
 # format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_blue)]($style)'
-
-[php]
-symbol = ""
-style = "bg:color_blue"
-format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_blue)]($style)'
-
-[java]
-symbol = " "
-style = "bg:color_blue"
-format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_blue)]($style)'
-
-[kotlin]
-symbol = ""
-style = "bg:color_blue"
-format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_blue)]($style)'
-
-[haskell]
-symbol = ""
-style = "bg:color_blue"
-format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_blue)]($style)'
 
 [python]
 symbol = ""
-style = "bg:color_blue"
-format = '[[ $symbol( $version $virtualenv) ](fg:color_blue)]($style)'
+# format = '[$symbol( $version $virtualenv)'
 
 [docker_context]
 symbol = ""
-style = "bg:color_bg3"
-format = '[[ $symbol( $context) ](fg:#83a598 bg:color_bg3)]($style)'
 
-[conda]
-style = "bg:color_bg3"
-format = '[[ $symbol( $environment) ](fg:#83a598 bg:color_bg3)]($style)'
 
 [time]
 disabled = true
 time_format = "%R"
-# style = "bg:color_bg1"
 # format = '[[  $time ](fg:color_fg0 bg:color_bg1)]($style)'
 
 [kubernetes]
 disabled = false
 format='[$symbol]($style)'
 contexts = [
-  { context_pattern = "gke_cargo-one_europe-west3-b_staging", symbol = "☸ ",  style="fg:color_aqua"},
-  { context_pattern = "gke_cargo-one_europe-west3-b_production", symbol = "☸💣💥 ", style="fg:color_orange" }
+  { context_pattern = "gke_cargo-one_europe-west3-b_staging", symbol = "☸  "},
+  { context_pattern = "gke_cargo-one_europe-west3-b_production", symbol = "💣💥 "}
 ]
 
 
@@ -152,11 +103,11 @@ disabled = true
 symbol = '️🇬️ '
 format = '[$symbol]($style)'
 
-[character]
-disabled = false
-success_symbol = '[](bold fg:color_green)'
-error_symbol = '[](bold fg:color_red)'
-vimcmd_symbol = '[](bold fg:color_green)'
-vimcmd_replace_one_symbol = '[](bold fg:color_purple)'
-vimcmd_replace_symbol = '[](bold fg:color_purple)'
-vimcmd_visual_symbol = '[](bold fg:color_yellow)'
+# [character]
+# disabled = false
+# success_symbol = '[](bold fg:color_green)'
+# error_symbol = '[](bold fg:color_red)'
+# vimcmd_symbol = '[](bold fg:color_green)'
+# vimcmd_replace_one_symbol = '[](bold fg:color_purple)'
+# vimcmd_replace_symbol = '[](bold fg:color_purple)'
+# vimcmd_visual_symbol = '[](bold fg:color_yellow)'
