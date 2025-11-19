@@ -20,7 +20,7 @@ if [ -f "$HOME/.zsh/scripts/aliases.zsh" ]; then . "$HOME/.zsh/scripts/aliases.z
 if [ -f "$HOME/.zsh/scripts/secrets.zsh" ]; then . "$HOME/.zsh/scripts/secrets.zsh"; fi
 
 export PATH="$HOME/.cargo/bin:$PATH"
-export EDITOR="nvim"
+export EDITOR="helix"
 
 eval "$(starship init zsh)"
 
@@ -34,7 +34,7 @@ export SDKMAN_DIR="$HOME/.sdkman"
 export PATH="/home/emmanuel/.local/bin:$PATH"
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/home/emmanuel/Documents/google-cloud-sdk/path.zsh.inc' ]; then . '/home/emmanuel/Documents/google-cloud-sdk/path.zsh.inc'; fi
+if [ -f '/home/emmanuel/.google/google-cloud-sdk/path.zsh.inc' ]; then . '/home/emmanuel/.google/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f '/home/emmanuel/Documents/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/emmanuel/Documents/google-cloud-sdk/completion.zsh.inc'; fi
+if [ -f '/home/emmanuel/.google/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/emmanuel/.google/google-cloud-sdk/completion.zsh.inc'; fi

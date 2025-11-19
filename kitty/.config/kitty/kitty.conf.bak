@@ -1,6 +1,6 @@
 # vim:fileencoding=utf-8:foldmethod=marker
 
-font_size 14.0
+font_size 10.0
 
 # mappings
  map ctrl+alt+z toggle_layout stack
