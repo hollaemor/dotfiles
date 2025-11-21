@@ -332,6 +332,8 @@ window-rule {
 }
 
 window-rule {
+    match app-id=r#"kitty$"#
+    match app-id=r#"firefox$"#
     opacity 0.97
 }
 
