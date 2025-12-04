@@ -1,4 +1,60 @@
-line-length=120
+# Standard Ruff Configuration for cargo.one Projects
+# To use this file lovally across all your project just have copy it in your ~/ then run `ruff check --fix` and `ruff format`
+
+target-version = "py312"
+line-length = 120
+
+[lint]
+preview = true
+# Enable comprehensive linting rules
+select = [
+    "E",    # pycodestyle errors
+    "W",    # pycodestyle warnings
+    "F",    # pyflakes
+    "UP",   # pyupgrade
+    "SIM",  # flake8-simplify
+    "PLC0415" # function level imports
+]
+
+# Exclude the same rules that are ignored in the current flake8 job
+# Note: Some flake8 codes (E126, W503, F601, F541, F632) are not implemented in Ruff
+ignore = [
+    "E117",  # over indented
+    "E501",  # line too long (handled by line-length setting)
+    "E722",  # do not use bare except
+    "W291",  # trailing whitespace
+    "F841",  # local variable assigned but never used
+    "UP040", # use a "type" statement instead of this "TypeAlias", duplicate of S6794
+]
+
+# Unfixable rules
+unfixable = [
+    "UP035", # deprecated import, issues with Generator
+]
+
+[lint.per-file-ignores]
+# Allow certain violations in specific file types
+"tests/**" = ["F401", "F841", "E501"]  # Allow unused imports and variables in tests
+"__init__.py" = ["F401"]  # Allow unused imports in __init__ files
 
 [format]
-quote-style="preserve"
+preview = true
+# Code formatting options
+quote-style = "single"  # Use single quotes
+indent-style = "space"
+line-ending = "auto"
+
+# File exclusion patterns (same as flake8 job)
+exclude = [
+    "src",
+    "venv",
+    ".venv",
+    "build",
+    "dist",
+    ".git",
+    "__pycache__",
+    "*.egg-info",
+    ".pytest_cache",
+    ".mypy_cache",
+    ".ruff_cache",
+]
