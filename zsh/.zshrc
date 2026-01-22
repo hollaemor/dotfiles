@@ -20,7 +20,7 @@ if [ -f "$HOME/.zsh/scripts/aliases.zsh" ]; then . "$HOME/.zsh/scripts/aliases.z
 if [ -f "$HOME/.zsh/scripts/secrets.zsh" ]; then . "$HOME/.zsh/scripts/secrets.zsh"; fi
 
 export PATH="$HOME/.cargo/bin:$PATH"
-export EDITOR="helix"
+export EDITOR="nvim"
 
 eval "$(starship init zsh)"
 

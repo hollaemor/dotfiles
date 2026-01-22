@@ -334,7 +334,7 @@ window-rule {
 window-rule {
     match app-id=r#"kitty$"#
     match app-id=r#"firefox$"#
-    opacity 0.97
+    // opacity 0.97
 }
 
 // Example: block out two password managers from screen capture.
