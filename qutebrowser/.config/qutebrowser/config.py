@@ -21,3 +21,26 @@ c.statusbar.widgets = ['keypress', 'search_match', 'url', 'scroll', 'history', '
 c.window.transparent = True
 
 c.content.geolocation = False
+
+
+c.content.cache.size = 52428800
+
+c.qt.args += [
+    '--disk-cache-size=52428800',
+    '--disable-gpu',
+    '--disable-gpu-compositing',
+    '--disable-software-rasterizer',
+    '--js-flags=--max-old-space-size=512',
+    '--disable-features=AudioServiceOutOfProcess, Prerender2',
+    '--disable-background-networking',
+    '--disable-breakpad',
+    '--disable-print-preview',
+    '--disable-speech-api',
+    '--disable-gpu-memory-buffer-video-frames',
+    '--max-active-webgl-contexts=1',
+]
+
+c.content.blocking.adblock.lists = [
+    'https://easylist.to/easylist/easylist.txt',
+    'https://easylist.to/easylist/easyprivacy.txt',
+]
