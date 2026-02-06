@@ -1,1 +1,10 @@
-/home/emmanuel/.config/omarchy/current/theme/neovim.lua
+return {
+
+  -- Configure LazyVim to load gruvbox
+  {
+    "LazyVim/LazyVim",
+    opts = {
+      colorscheme = "gruvbox",
+    },
+  },
+}

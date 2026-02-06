@@ -45,9 +45,13 @@ include current-theme.conf
 
 # BEGIN_KITTY_FONTS
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 font_family      family="0xProto Nerd Font"
 =======
 font_family      family="0xProto Nerd Font Mono"
+>>>>>>> Stashed changes
+=======
+font_family      family="FiraMono Nerd Font"
 >>>>>>> Stashed changes
 bold_font        auto
 italic_font      auto
