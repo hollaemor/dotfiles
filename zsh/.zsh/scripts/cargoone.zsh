@@ -37,3 +37,7 @@ alias dprod="pgcli -U emmanuel.oriarewo -h localhost -p 5999 -d user-service"
 
 # NVM - Node Version Manager
 if [ -f "/usr/share/nvm/init-nvm.sh" ]; then . "/usr/share/nvm/init-nvm.sh"; fi
+
+export PATH="$HOME/.local/bin:$PATH"
+export UV_EXTRA_INDEX_URL="https://oauth2accesstoken@europe-west3-python.pkg.dev/cargo-one/python-repository/simple/"
+export UV_KEYRING_PROVIDER="subprocess"
