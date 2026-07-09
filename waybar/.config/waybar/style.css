@@ -31,8 +31,9 @@
 
 window#waybar {
 
-  font-family: "JetBrainsMono Nerd Font";
-  background: rgba(43, 48, 59, 0.8);
+  font-family: "VictorMono Nerd Font";
+  /* background: rgba(43, 48, 59, 0.8); */
+  background: rgba(28, 28, 28, 0.99);
   border-bottom: 1px solid black;
   color: #ebdbb2;
   transition-property: background-color;
@@ -122,6 +123,11 @@ tooltip label {
 
 #workspaces button.urgent {
   background-color: #b16286;
+}
+
+#window {
+  font-style: italic;
+  font-weight: bold;
 }
 
 #battery.charging,

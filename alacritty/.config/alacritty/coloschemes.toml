@@ -1,0 +1,117 @@
+[schemes.gruvbox_dark.bright]
+black = "#928374"
+blue = "#83a598"
+cyan = "#8ec07c"
+green = "#b8bb26"
+magenta = "#d3869b"
+red = "#fb4934"
+white = "#ebdbb2"
+yellow = "#fabd2f"
+
+[schemes.gruvbox_dark.normal]
+black = "#282828"
+blue = "#458588"
+cyan = "#689d6a"
+green = "#98971a"
+magenta = "#b16286"
+red = "#cc241d"
+white = "#a89984"
+yellow = "#d79921"
+
+[schemes.gruvbox_dark.primary]
+background = "#1d2021"
+foreground = "#ebdbb2"
+
+[schemes.material.bright]
+black = "#4e4e4e"
+blue = "#82aaff"
+cyan = "#89ddff"
+green = "#c3e88d"
+magenta = "#f07178"
+red = "#ff5370"
+white = "#ffffff"
+yellow = "#ffcb6b"
+
+[schemes.material.normal]
+black = "#000000"
+blue = "#6182b8"
+cyan = "#39adb5"
+green = "#91b859"
+magenta = "#ff5370"
+red = "#e53935"
+white = "#a0a0a0"
+yellow = "#ffb62c"
+
+[schemes.material.primary]
+background = "#263238"
+foreground = "#eeffff"
+
+[schemes.monkai_pro.bright]
+black = "#727072"
+blue = "#FC9867"
+cyan = "#78DCE8"
+green = "#A9DC76"
+magenta = "#AB9DF2"
+red = "#FF6188"
+white = "#FCFCFA"
+yellow = "#FFD866"
+
+[schemes.monkai_pro.normal]
+black = "#403E41"
+blue = "#FC9867"
+cyan = "#78DCE8"
+green = "#A9DC76"
+magenta = "#AB9DF2"
+red = "#FF6188"
+white = "#FCFCFA"
+yellow = "#FFD866"
+
+[schemes.monkai_pro.primary]
+background = "#2D2A2E"
+foreground = "#FCFCFA"
+
+[schemes.nord.bright]
+black = "#4C566A"
+blue = "#81A1C1"
+cyan = "#8FBCBB"
+green = "#A3BE8C"
+magenta = "#B48EAD"
+red = "#BF616A"
+white = "#ECEFF4"
+yellow = "#EBCB8B"
+
+[schemes.nord.normal]
+black = "#3B4252"
+blue = "#81A1C1"
+cyan = "#88C0D0"
+green = "#A3BE8C"
+magenta = "#B48EAD"
+red = "#BF616A"
+white = "#E5E9F0"
+yellow = "#EBCB8B"
+
+[schemes.nord.primary]
+background = "#2E3440"
+foreground = "#D8DEE9"
+
+[schemes.one_dark.cursor]
+cursor = "#528bff"
+text = "CellBackground"
+
+[schemes.one_dark.normal]
+black = "#5c6370"
+blue = "#61afef"
+cyan = "#56b6c2"
+green = "#98c379"
+magenta = "#c678dd"
+red = "#e06c75"
+white = "#828997"
+yellow = "#e5c07b"
+
+[schemes.one_dark.primary]
+background = "#282c34"
+foreground = "#abb2bf"
+
+[schemes.one_dark.selection]
+background = "#3e4451"
+text = "CellForeground"

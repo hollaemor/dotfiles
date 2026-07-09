@@ -1,5 +1,5 @@
 {
-  "position": "top",
+  "position": "bottom",
   "layer": "bottom",
   "spacing": 4,
   //"height": 34, 
@@ -19,6 +19,7 @@
     "wireplumber",
     "custom/pacman",
     "custom/weather",
+    "network",
     "clock",
     "battery",
     "tray"
@@ -101,6 +102,18 @@
       "warning": 70,
       "critical": 90
     }
+  },
+  "network": {
+    "interface": "wlan0",
+    "format": "{ifname}",
+    "format-wifi": "{essid}  ",
+    "format-ethernet": "{ipaddr}/{cidr} 󰊗",
+    "format-disconnected": "", //An empty format will hide the module.
+    "tooltip-format": "{ifname} via {gwaddr} 󰊗",
+    "tooltip-format-wifi": "{essid} ({signalStrength}%) ",
+    "tooltip-format-ethernet": "{ifname} ",
+    "tooltip-format-disconnected": "Disconnected",
+    "max-length": 50
   },
   "backlight": {
     // "device": "eDP-1",
