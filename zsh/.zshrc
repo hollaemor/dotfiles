@@ -6,7 +6,7 @@ setopt autocd
 bindkey -v
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
-zstyle :compinstall filename '/home/emmanuel/.zshrc'
+zstyle :compinstall filename "$HOME/.zshrc"
 zstyle ':completion:*' menu select
 
 autoload -Uz compinit
@@ -14,10 +14,13 @@ compinit
 # End of lines added by compinstall
 
 
-if [ -f "$HOME/.zsh/scripts/cargoone.zsh" ]; then . "$HOME/.zsh/scripts/cargoone.zsh"; fi
+if [ -f "$HOME/.zsh/scripts/gorilla.zsh" ]; then . "$HOME/.zsh/scripts/gorilla.zsh"; fi
 if [ -f "$HOME/.zsh/scripts/other.zsh" ]; then . "$HOME/.zsh/scripts/other.zsh"; fi
+if [ -f "$HOME/.zsh/scripts/plugins.zsh" ]; then . "$HOME/.zsh/scripts/plugins.zsh"; fi
 if [ -f "$HOME/.zsh/scripts/aliases.zsh" ]; then . "$HOME/.zsh/scripts/aliases.zsh"; fi
 if [ -f "$HOME/.zsh/scripts/secrets.zsh" ]; then . "$HOME/.zsh/scripts/secrets.zsh"; fi
+
+
 
 export PATH="$HOME/.cargo/bin:$PATH"
 export EDITOR="nvim"
@@ -31,10 +34,8 @@ export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
 # awrit
-export PATH="/home/emmanuel/.local/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/home/emmanuel/.google/google-cloud-sdk/path.zsh.inc' ]; then . '/home/emmanuel/.google/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/home/emmanuel/.google/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/emmanuel/.google/google-cloud-sdk/completion.zsh.inc'; fi
+# export PYENV_ROOT="$HOME/.pyenv"
+# command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+# eval "$(pyenv init -)"

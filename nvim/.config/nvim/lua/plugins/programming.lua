@@ -55,18 +55,8 @@ return {
         "json",
         "xml",
         "java",
+        "python",
       })
-    end,
-  },
-
-  -- AI entries
-  {
-    "greggh/claude-code.nvim",
-    dependencies = {
-      "nvim-lua/plenary.nvim", -- Required for git operations
-    },
-    config = function()
-      require("claude-code").setup()
     end,
   },
 
@@ -74,14 +64,8 @@ return {
     "yetone/avante.nvim",
     -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
     -- ⚠️ must add this setting! ! !
-    build = function()
-      -- conditionally use the correct build system for the current OS
-      if vim.fn.has("win32") == 1 then
-        return "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false"
-      else
-        return "make BUILD_FROM_SOURCE=true"
-      end
-    end,
+    build = vim.fn.has("win32") ~= 0 and "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false"
+      or "make",
     event = "VeryLazy",
     version = false, -- Never set this value to "*"! Never!
     ---@module 'avante'
@@ -89,11 +73,11 @@ return {
     opts = {
       -- add any opts here
       -- for example
-      provider = "claude",
+      provider = "gemini",
       providers = {
         claude = {
-          endpoint = "https://api.anthropic.com",
-          model = "claude-sonnet-4-20250514",
+          -- endpoint = "https://api.anthropic.com",
+          --      model = "claude-sonnet-4-20250514",
           timeout = 30000, -- Timeout in milliseconds
           extra_request_body = {
             temperature = 0.75,

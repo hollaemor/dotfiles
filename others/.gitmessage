@@ -1,0 +1,8 @@
+# format: type (scope): description
+# type: feat, fix, chore
+# scope: emi, wf
+type (scope): description
+
+optional body
+
+ticket: GORILLA-$$$$

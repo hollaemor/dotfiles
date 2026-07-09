@@ -1,6 +1,6 @@
 # vim:fileencoding=utf-8:foldmethod=marker
 
-font_size 11.0
+font_size 12.0
 
 # mappings
  map ctrl+alt+z toggle_layout stack
@@ -14,6 +14,10 @@ map ctrl+alt+down resize_window shorter 3
 
 # list tabs
 map ctrl+shift+; select_tab
+map ctrl+shift+e launch --type=overlay --allow-remote-control ~/.config/kitty/kitty-tab-switcher
+
+map ctrl+alt+s remote_control load-config -o tab_bar_min_tabs=2
+map ctrl+alt+h remote_control load-config -o tab_bar_min_tabs=10
 
 map ctrl+alt+a launch  --cwd=~/Documents/code/gitlab.com/cargoone/services/async-airline/ --type=tab --tab-title="🛩️ Async airlines" nvim
 
@@ -29,30 +33,22 @@ inactive_text_alpha 0.5
 hide_window_decorations no
 # active_border_color #d79921
 
-background_opacity 1.0
+background_opacity 0.98
 
 
 editor nvim
 
 allow_remote_control yes
-listen_on unix:@mykitty
+#listen_on unix:@mykitty
 
 # BEGIN_KITTY_THEME
-# Tokyo Night
+# Gruvbox Dark Hard
 include current-theme.conf
 # END_KITTY_THEME
 
 
 # BEGIN_KITTY_FONTS
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
 font_family      family="0xProto Nerd Font"
-=======
-font_family      family="0xProto Nerd Font Mono"
->>>>>>> Stashed changes
-=======
-font_family      family="FiraMono Nerd Font"
->>>>>>> Stashed changes
 bold_font        auto
 italic_font      auto
 bold_italic_font auto
@@ -62,3 +58,6 @@ bold_italic_font auto
 cursor_trail 1
 cursor_trail_decay 0.1 0.4
 cursor_trail_start_threshold 2
+
+
+# tab_bar_min_tabs 10

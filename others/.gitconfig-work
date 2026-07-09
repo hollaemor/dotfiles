@@ -1,3 +1,6 @@
 [user]
   name = "Emmanuel Oriarewo"
-  email = "emmanuel.oriarewo@cargo.one"
+  email = "emmanuel@gorilla.co"
+
+[commit]
+	template = /Users/emmanuel/.gitmessage

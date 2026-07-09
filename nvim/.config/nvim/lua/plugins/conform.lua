@@ -12,22 +12,6 @@ return {
         -- html = { "prettier" },
         xml = { "xmllint" },
       },
-      formatters = {
-        black = {
-          prepend_args = { "-l", "120", "-S" },
-        },
-        ruff_format = {
-          append_args = { "--config", "~/.ruff.toml" },
-          command = "ruff",
-          args = {
-            "format",
-            "--force-exclude",
-            "--stdin-filename",
-            "$FILENAME",
-            "-",
-          },
-        },
-      },
     },
   },
 }

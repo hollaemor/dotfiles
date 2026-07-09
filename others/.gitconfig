@@ -1,9 +1,18 @@
 [user]
 	name = Emmanuel Oriarewo
 
-[includeIf "gitdir:~/Documents/code/gitlab.com/"]
+[includeIf "gitdir:~/Documents/code/bitbucket.org/gorillaco/"]
   path = ~/.gitconfig-work
 [includeIf "gitdir:~/Documents/code/github.com/"]
   path = ~/.gitconfig-personal
 [pull]
 	rebase = true
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[rerere]
+	enabled = true
+[core]
+	ignorecase = false
