@@ -12,7 +12,7 @@
   ],
   "modules-center": [],
   "modules-right": [
-    "mpris",
+    "custom/spotify",
     "idle_inhibitor",
     "memory",
     "backlight",
@@ -141,7 +141,7 @@
       "(.*) - Mozilla Firefox": "🌎 $1",
       "(.*) - vim": " $1",
       "(.*) - zsh": " [$1]"
-    },
+    }
   },
   "sway/scratchpad": {
     "format": "{icon} {count}",
@@ -185,7 +185,7 @@
       "class<firefox>": "",
       "class<kitty>": "",
       "code": "󰨞",
-      "title<.*youtube.*>": "",
+      "title<.*youtube.*>": ""
     }
   },
   "wireplumber": {
@@ -207,7 +207,7 @@
         ""
       ]
     },
-    "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK toggle",
+    "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK toggle"
   },
   "custom/spotify": {
     "format": " {}",
@@ -256,5 +256,5 @@
   },
   "load": {
     "format": " {}"
-  },
+  }
 }
