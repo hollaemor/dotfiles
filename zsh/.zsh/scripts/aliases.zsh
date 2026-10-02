@@ -1,5 +1,5 @@
 alias v="nvim"
-alias h="helix"
+alias h="helix || hx"
 alias ls="eza --icons --hyperlink --git"
 alias mine="cd ~/Documents/code/github.com/hollaemor/"
 alias gorilla="cd ~/Documents/code/bitbucket.org/gorillaco/"
