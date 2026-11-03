@@ -7,9 +7,13 @@ color-modes = true
 popup-border = "all"
 true-color = true
 
+[editor.lsp]
+display-inlay-hints = true
+
 [editor.cursor-shape]
 insert = "bar"
 select = "underline"
+normal = "block"
 
 [editor.indent-guides]
 render =  true
@@ -28,8 +32,6 @@ separator = "│"
 diagnostics = ["warning", "error"]
 workspace-diagnostics = ["warning", "error"]
 
-
-# helix/config.toml
 [keys.normal]
 C-g = [
     ":write-all",
@@ -37,3 +39,11 @@ C-g = [
     ":redraw",
     ":reload-all"
 ]
+C-s = ":w"
+y = "yank_main_selection_to_clipboard"
+p = "paste_clipboard_before"
+
+[keys.select]
+y = "yank_main_selection_to_clipboard"
+p = "paste_clipboard_before"
+
